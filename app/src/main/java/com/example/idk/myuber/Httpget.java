@@ -30,18 +30,6 @@ public class Httpget {
     int owner_rating;
     String bike_owner_num;
 
-    public static void main(String[] args) {
-        Httpget test = null;
-        JSONObject obj = null;
-        String owner_number;
-    
-        obj = test.getBike("36.999", "-122");
-        
-        test.parseBike(obj);
-        owner_number = test.getBike_owner_num();
-        
-        System.out.print(owner_number);
-    }
 
     public JSONObject getJson(HttpEntity httpentity) {
 
