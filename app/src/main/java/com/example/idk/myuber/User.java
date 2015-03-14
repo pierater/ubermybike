@@ -1,3 +1,5 @@
+import com.example.idk.myuber.Bike;
+
 public class User {
 
     public String name;
@@ -12,12 +14,12 @@ public class User {
         name = startname;
         phone_number = startphone_number;
         email = startemail;
-        bike = new Bike;
+        bike = new Bike();
     }
 
     public String getNametName() {
 
-    return name;
+        return name;
     }
 
     public Bike getBike() {
@@ -35,7 +37,7 @@ public class User {
         return email;
     }
 
-    public int getRating()
+    public int getRating() {
 
         return rating;
     }
@@ -44,3 +46,4 @@ public class User {
 
         return experience;
     }
+}
