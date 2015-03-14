@@ -1,13 +1,13 @@
 public class User {
 
-    public string name;
-    public Bike = bike; // still need to init this
-    public string phone_number;
-    public string email;
+    public String name;
+    public Bike = bike;
+    public String phone_number;
+    public String email;
     public int rating;
     public int experience;
 
-    public User(string startname, string startphone_number, string startemail, Bike bike) {
+    public User(String startname, String startphone_number, String startemail, Bike bike) {
 
         name = startname;
         phone_number = startphone_number;
@@ -15,10 +15,32 @@ public class User {
         bike = new Bike;
     }
 
-    public void rentBike() {
+    public String getNametName() {
 
-
-
-
+    return name;
     }
-}
+
+    public Bike getBike() {
+
+        return bike;
+    }
+
+    public String getPhone_number() {
+
+        return phone_number;
+    }
+
+    public String getEmail() {
+
+        return email;
+    }
+
+    public int getRating()
+
+        return rating;
+    }
+
+    public int getExperience() {
+
+        return experience;
+    }
