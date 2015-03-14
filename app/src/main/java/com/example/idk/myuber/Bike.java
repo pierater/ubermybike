@@ -35,7 +35,4 @@ public class Bike {
     public void setOwner_name(String owner_name){
         this.owner_name = owner_name;
     }
-
-
-
 }
