@@ -17,10 +17,10 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/post_bike_description_textbox"
+        android:id="@+id/post_description_string"
         android:layout_weight="0.40"
         android:layout_marginLeft="0dp"
         android:layout_below="@+id/post_bike_textview"
