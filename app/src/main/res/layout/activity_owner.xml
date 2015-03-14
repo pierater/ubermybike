@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:id="@+id/owner_name_textview"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="51dp"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone Number:"
+        android:id="@+id/owner_phonenumber_textview"
+        android:layout_below="@+id/owner_name_textview"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="65dp"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E-mail:"
+        android:id="@+id/owner_email_textview"
+        android:textSize="30dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rating:"
+        android:id="@+id/owner_rating_textview"
+        android:layout_below="@+id/owner_email_textview"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="61dp"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Experience:"
+        android:id="@+id/owner_experience_textview"
+        android:layout_below="@+id/owner_rating_textview"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="49dp"
+        android:textSize="30dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ok"
+        android:id="@+id/return_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/owner_name"
+        android:layout_below="@+id/owner_name_textview"
+        android:layout_alignParentStart="true"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/owner_phonenumber"
+        android:layout_alignParentStart="true"
+        android:textSize="25dp"
+        android:layout_below="@+id/owner_phonenumber_textview"
+        android:layout_above="@+id/owner_email_textview"
+        android:layout_alignEnd="@+id/owner_phonenumber_textview" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/owner_email"
+        android:layout_below="@+id/owner_email_textview"
+        android:layout_alignParentStart="true"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/owner_rating"
+        android:layout_below="@+id/owner_rating_textview"
+        android:layout_alignParentStart="true"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/owner_experience"
+        android:layout_below="@+id/owner_experience_textview"
+        android:layout_alignParentStart="true"
+        android:textSize="25dp" />
+</RelativeLayout>

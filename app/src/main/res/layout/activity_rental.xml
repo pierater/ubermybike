@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/rental">
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hourly ($1/hr)*"
+        android:id="@+id/hourly_rate_option"
+        android:layout_below="@+id/rentaltype_textView"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full Day ($5)"
+        android:id="@+id/all_day_option"
+        android:layout_below="@+id/hourly_rate_option"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rental Type"
+        android:id="@+id/rentaltype_textView"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="51dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Credit Card Information:"
+        android:id="@+id/creditcard_textview"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/creditcard_textbox"
+        android:layout_below="@+id/creditcard_textview"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/continue_rental_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/disclaimer"
+        android:id="@+id/rental_disclaimer_textview"
+        android:textSize="15dp"
+        android:layout_gravity="bottom"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/all_day_option"
+        android:layout_above="@+id/creditcard_textview" />
+</RelativeLayout>

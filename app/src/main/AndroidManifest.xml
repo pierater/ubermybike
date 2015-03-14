@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.idk.myuber" >
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />>
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -27,7 +29,8 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" >
+            android:label="Uber My Bike"
+            android:icon="@drawable/bike9">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

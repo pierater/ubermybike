@@ -3,4 +3,9 @@
     <string name="title_activity_maps">Map</string>
     <string name="Current_Bike_Description">Description here</string>
     <string name="Rent_bike_button">Rent Bike</string>
+    <string name="Post_Bike_page2"></string>
+    <string name="post_description_string"></string>
+    <string name="disclaimer">*If for any reason you are unable to contact our services to end your
+        hourly service, you will be charged the price of a full day of use.</string>
+    <string name="rental"></string>
 </resources>
