@@ -28,7 +28,7 @@
             android:value="AIzaSyD-JFM5IQl8shjWY-Rbzs9w_epyi6Cy0GY" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".Main_Activity"
             android:label="Uber My Bike"
             android:icon="@drawable/bike9">
             <intent-filter>
