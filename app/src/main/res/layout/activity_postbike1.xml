@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
-</LinearLayout>
+    <TextView
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Post Your Bike"
+        android:id="@+id/title_post_bike"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.04"
+        android:textSize="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Step 1 : Take a Picture"
+        android:id="@+id/step1_post_bike"
+        android:layout_weight="0.04"
+        android:textSize="25dp"
+        android:layout_alignTop="@+id/pic_of_bike_post"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="92dp"
+        android:layout_height="135dp"
+        android:id="@+id/pic_of_bike_post"
+        android:src="@mipmap/bike"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/title_post_bike"
+        android:layout_above="@+id/launch_camera_button"
+        android:layout_alignEnd="@+id/launch_camera_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Launch Camera"
+        android:id="@+id/launch_camera_button"
+        android:layout_weight="0.04"
+        android:layout_above="@+id/step2_post_bike"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Step 2: Description"
+        android:id="@+id/step2_post_bike"
+        android:layout_weight="0.04"
+        android:textSize="25dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/next_button"
+        android:layout_weight="0.04"
+        android:layout_gravity="right"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/post_description_string"
+        android:layout_below="@+id/step2_post_bike"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
