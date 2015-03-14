@@ -1,7 +1,7 @@
 public class User {
 
     public String name;
-    public Bike = bike;
+    public Bike bike;
     public String phone_number;
     public String email;
     public int rating;
