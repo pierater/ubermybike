@@ -22,9 +22,9 @@ public class Httpget {
         URL += "&lon=";
         URL += bike_lon;
 
-        try {
+       // try {
 
 
         }
     }
-        }
+        //}
