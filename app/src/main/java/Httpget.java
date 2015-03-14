@@ -22,9 +22,13 @@ public class Httpget {
         URL += "&lon=";
         URL += bike_lon;
 
+<<<<<<< HEAD
        // try {
+=======
+        //try {
+>>>>>>> origin/master
 
 
-        }
+       //}
     }
         //}
