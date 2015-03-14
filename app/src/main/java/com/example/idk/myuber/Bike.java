@@ -14,7 +14,7 @@ public class Bike {
    private String lon;//coords longitude
 
 
-   //bike class constructor
+   //bike class constructor takes in parameters from the inputs of the user to be stored... somewhere.
 
     public Bike(int bike_rating, String owner_name, Boolean isAvailable, String lat, String lon){
         this.bike_rating = bike_rating;
