@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rent_bike">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rent_bike_image"
+        android:src="@mipmap/bike"
+        android:layout_marginBottom="254dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:contentDescription="Bike to be rented" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/Current_Bike_Description"
+        android:id="@+id/bike_rent_description"
+        android:enabled="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="192dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Rent_bike_button"
+        android:id="@+id/rent_button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:clickable="true" />
+</RelativeLayout>
