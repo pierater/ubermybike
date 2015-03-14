@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/Current_Bike_Description"
+        android:text="@string/post_description_string"
         android:id="@+id/bike_rent_description"
         android:enabled="true"
         android:layout_alignParentBottom="true"

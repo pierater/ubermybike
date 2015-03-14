@@ -24,7 +24,8 @@
         android:layout_weight="0.40"
         android:layout_marginLeft="0dp"
         android:layout_below="@+id/post_bike_textview"
-        android:layout_alignEnd="@+id/post_bike_post_button" />
+        android:layout_alignEnd="@+id/post_bike_post_button"
+        android:text="@string/post_description_string" />
 
     <Button
         android:layout_width="wrap_content"
