@@ -1,9 +1,9 @@
 package com.example.idk.myuber;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +12,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
+
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -34,12 +34,11 @@ public class MapsActivity extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState)
     {
         super.onActivityCreated(savedInstanceState);
-        FragmentManager fm=getChildFragmentManager();
-        fragment = (SupportMapFragment)fm.findFragmentById(R.id.map);
+        fragment = (SupportMapFragment)Main_Activity.fragmentManager.findFragmentById(R.id.map);
         if(fragment == null)
         {
             fragment = SupportMapFragment.newInstance();
-            fm.beginTransaction().replace(R.id.map, fragment).commit();
+            Main_Activity.fragmentManager.beginTransaction().replace(R.id.map, fragment).commit();
 
         }
 
