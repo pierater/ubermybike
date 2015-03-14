@@ -33,4 +33,12 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:clickable="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Owner Profile"
+        android:id="@+id/owner_profile_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
