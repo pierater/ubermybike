@@ -1,7 +1,13 @@
 package com.example.idk.myuber;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -11,33 +17,35 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
-public class MapsActivity extends FragmentActivity {
+public class MapsActivity extends Fragment {
 
     private GoogleMap mMap = null;
     private Marker position = null;
-    private LatLngBounds SanFran = new LatLngBounds(
-            new LatLng(37, -122), new LatLng(37, -122));
-    /*
-Set the camera to the greatest possible zoom level that includes the
-bounds
-*/
+    private SupportMapFragment fragment;
+
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
-        setUpMapIfNeeded();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        return inflater.inflate(R.layout.activity_maps, container, false);
     }
-    private  void setUpMapIfNeeded()
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState)
     {
-        if (mMap == null) {
-            mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
-            if(mMap != null){
-                SetupMap();
-            }
+        super.onActivityCreated(savedInstanceState);
+        FragmentManager fm=getChildFragmentManager();
+        fragment = (SupportMapFragment)fm.findFragmentById(R.id.map);
+        if(fragment == null)
+        {
+            fragment = SupportMapFragment.newInstance();
+            fm.beginTransaction().replace(R.id.map, fragment).commit();
+
         }
+
     }
+
+
     private void SetupMap()
     {
         position = mMap.addMarker(new MarkerOptions().position(new LatLng(36.999 , -122)).title("Origin"));
