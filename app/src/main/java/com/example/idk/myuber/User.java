@@ -1,4 +1,7 @@
 import com.example.idk.myuber.Bike;
+import com.example.idk.myuber.Httpget;
+
+import org.json.JSONObject;
 
 public class User {
 
@@ -14,10 +17,20 @@ public class User {
         name = startname;
         phone_number = startphone_number;
         email = startemail;
-        bike = new Bike();
+        String bike_lat;
+        String bike_lon;
+        Httpget get;
+        JSONObject obj = null;
+        get = new Httpget();
+        obj = get.getBike("36.99", "-122");
+        get.parseBike(obj);
+        bike_lat = get.getBike_lat();
+        bike_lon = get.getBike_lon();
+
+
     }
 
-    public String getNametName() {
+    public String getName() {
 
         return name;
     }

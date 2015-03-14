@@ -8,18 +8,16 @@ public class Bike {
     //the bike class has 6 method variables
 
    private int bike_rating;
-   private String GPS_coord;
    private String owner_name;
    private Boolean isAvailable;
    private String lat;//coords latitude
    private String lon;//coords longitude
 
 
-   //bike class constructor
+   //bike class constructor takes in parameters from the inputs of the user to be stored... somewhere.
 
-    public Bike(int bike_rating, String GPS_coord, String owner_name, Boolean isAvailable, String lat, String lon){
+    public Bike(int bike_rating, String owner_name, Boolean isAvailable, String lat, String lon){
         this.bike_rating = bike_rating;
-        this.GPS_coord = GPS_coord;
         this.owner_name = owner_name;
         this.isAvailable = isAvailable;
         this.lat = lat;
@@ -31,9 +29,6 @@ public class Bike {
     public int getBike_rating(){
         return  bike_rating;
     }
-    public String getGPS_coord(){
-        return GPS_coord;
-    }
     public String getOwner_name(){
         return owner_name;
     }
@@ -43,9 +38,6 @@ public class Bike {
 
     public void setBike_rating(int bike_rating){
         this.bike_rating = bike_rating;
-    }
-    public void setGPS_coord(String GPS_coord){
-        this.GPS_coord = GPS_coord;
     }
     public void setOwner_name(String owner_name){
         this.owner_name = owner_name;
