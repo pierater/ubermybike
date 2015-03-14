@@ -24,7 +24,7 @@ public class Bike {
         this.lon = lon;
     }
     //getters and setters for the method variables
-    //NEED: to figure out where to connect the the variables to.
+    //NEED: figure out where to connect the the variables to.
 
     public int getBike_rating(){
         return  bike_rating;
