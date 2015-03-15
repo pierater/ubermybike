@@ -116,6 +116,7 @@ public class MapsActivity extends Fragment {
 
         Log.v("Map","maleMaerler" );
 
+        mMap.clear();
         JSONArray array = new JSONArray();
         Log.v("Map", "hasf");
         String[][] coordinates = bikes.getCoordinates();

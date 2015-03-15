@@ -27,7 +27,7 @@ public class PostBike2 extends Activity implements View.OnClickListener{
     static Httpget post = new Httpget();
     static JSONObject postobj = new JSONObject();
     static AsyncTask<String, Void, JSONArray> task = post.new newBike();
-    static String[] data ={"2", "36.999951","-122.054", "5"};//0 owner#, lat, long, rating
+    static String[] data ={"2", "36.9998","-122.0546", "5"};//0 owner#, lat, long, rating
     static Context context = null;
 
 
@@ -60,7 +60,7 @@ public class PostBike2 extends Activity implements View.OnClickListener{
     public void onClick(View v){
         switch (v.getId()) {
             case R.id.post_bike_post_button:
-                task.execute("2", "36.999951","-122.054", "5");
+                task.execute("2", "36.99993","-122.0543", "5");
                 Log.v("Task", "here");
                 break;
         }

@@ -80,7 +80,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="george@jetson.com"
+        android:text="Full Day $5"
         android:id="@+id/rental_type_info"
         android:layout_below="@+id/rental_type_textview"
         android:layout_alignParentStart="true"
