@@ -1,6 +1,7 @@
 package com.example.idk.myuber;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
@@ -59,7 +60,10 @@ public class PostBike extends Fragment implements View.OnClickListener {
                 // Image captured and saved to fileUri specified in the Intent
                // Toast.makeText(getActivity(), "Image saved to:\n" +
                         //intent.getData(), Toast.LENGTH_LONG).show();
-                ImageView imgview =(ImageView)getActivity().findViewById()
+                ImageView imgview =(ImageView)view.findViewById(R.id.pic_of_bike_post);
+                Uri imgUri=Uri.parse(intent.getData().toString());
+                imgview.setImageURI(null);
+                imgview.setImageURI(imgUri);
             } else if (resultCode == getActivity().RESULT_CANCELED) {
                 // User cancelled the image capture
             } else {
