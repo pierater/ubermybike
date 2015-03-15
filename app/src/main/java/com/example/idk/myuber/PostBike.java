@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -27,8 +28,8 @@ public class PostBike extends Fragment {
         String first_name;
         String last_name;
         Httpget tst = new Httpget();
-        JSONObject obj = new JSONObject();
-        obj = tst.getUser("1");
+        JSONArray obj = new JSONArray();
+        //obj = tst.getUser("1");
         tst.parseUser(obj);
         first_name = tst.getOwner_first_name();
         last_name = tst.getOwner_last_name();

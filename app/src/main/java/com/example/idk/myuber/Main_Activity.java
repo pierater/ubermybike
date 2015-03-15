@@ -15,7 +15,7 @@ public class Main_Activity extends FragmentActivity{
 
     ViewPager viewPager=null;
     public static FragmentManager fragmentManager;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
