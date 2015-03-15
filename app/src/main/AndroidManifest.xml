@@ -39,12 +39,30 @@
             android:label="@string/app_name"></activity>
         <activity
             android:name="com.example.idk.myuber.SplashActivity"
-            android:label="@string/app_name" >
+            android:label="Uber My Bike"
+            android:icon="@drawable/bike9"
+           >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".rentalActivity"
+            android:label="@string/app_name">
+
+            </activity>
+        <activity android:name=".rentalConfirmation"
+            android:label="@string/app_name">
+
+            </activity>
+        <activity android:name=".rentalFinal"
+            android:label="@string/app_name">
+
+            </activity>
+        <activity android:name=".rentABike"
+            android:label="@string/app_name">
+
+            </activity>
     </application>
 
 </manifest>

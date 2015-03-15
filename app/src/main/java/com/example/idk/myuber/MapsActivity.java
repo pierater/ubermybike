@@ -61,6 +61,10 @@ public class MapsActivity extends Fragment {
                 SetupMap();
 
         }
+        else
+        {
+            SetupMap();
+        }
 
     }
     private SupportMapFragment getMapFragment() {
