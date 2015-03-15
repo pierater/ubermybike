@@ -18,6 +18,9 @@ import android.widget.Button;
             case R.id.rent_button:
                 launch_rent_button();
                 break;
+            case R.id.owner_profile_button:
+                launch_owner_profile();
+                break;
         }
 
     }
@@ -27,14 +30,18 @@ import android.widget.Button;
         Intent intent = new Intent(this,rentalActivity.class);
         startActivity(intent);
     }
+    public void launch_owner_profile(){
+        Intent intent = new Intent(this,Owner.class);
+        startActivity(intent);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rent_a_bike);
         Button rent = (Button)findViewById(R.id.rent_button);
         rent.setOnClickListener(this);
-
-
+        Button ownerProfile = (Button)findViewById(R.id.owner_profile_button);
+        ownerProfile.setOnClickListener(this);
 
     }
 }
