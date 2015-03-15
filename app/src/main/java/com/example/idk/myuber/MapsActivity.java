@@ -1,5 +1,6 @@
 package com.example.idk.myuber;
 
+import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 
@@ -66,7 +68,7 @@ public class MapsActivity extends Fragment {
 
     private static void SetupMap()
     {
-        position = mMap.addMarker(new MarkerOptions().position(new LatLng(36.999 , -122)).title("Origin"));
+        position = mMap.addMarker(new MarkerOptions().position(new LatLng(36.999, -122)).title("Origin"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.7833,-122.4167), 8));
 
     }
@@ -86,8 +88,8 @@ public class MapsActivity extends Fragment {
         String last_name;
         Httpget tst = new Httpget();
         JSONObject obj = new JSONObject();
-        obj = tst.getUser("1");
-        tst.parseUser(obj);
+        AsyncTask<String, Void, JSONArray> task = tst.new myTask().execute("1");
+        //tst.myTask().execute(obj);
         first_name = tst.getOwner_first_name();
         last_name = tst.getOwner_last_name();
         //Log.v("Post", "TEST");
