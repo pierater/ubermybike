@@ -239,7 +239,7 @@ public class Httpget {
 
         }
         catch (Exception e) {
-            Log.v("LOG", "EXCEPTIONN");
+            Log.v("LOG", String.valueOf(jObj.length()));
             e.printStackTrace();
         }
     }
