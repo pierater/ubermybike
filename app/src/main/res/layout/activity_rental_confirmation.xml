@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#000000"
+    android:textColor="#ffffff">
 
     <TextView
         android:layout_width="wrap_content"
@@ -9,7 +11,9 @@
         android:id="@+id/rental_summary"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:textSize="35dp" />
+        android:textSize="35dp"
+        android:background="#000000"
+        android:textColor="#ffffff"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,7 +23,10 @@
         android:layout_marginTop="47dp"
         android:textSize="25dp"
         android:layout_below="@+id/rental_summary"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,7 +35,10 @@
         android:id="@+id/bike_owner_info"
         android:layout_below="@+id/bike_rental"
         android:layout_alignParentStart="true"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,7 +48,10 @@
         android:textSize="25dp"
         android:layout_below="@+id/bike_rental"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="51dp" />
+        android:layout_marginTop="51dp"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,7 +60,10 @@
         android:id="@+id/post_description_string"
         android:layout_below="@+id/Description_textview"
         android:layout_toEndOf="@+id/Description_textview"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -56,7 +72,10 @@
         android:id="@+id/rental_type_textview"
         android:layout_below="@+id/post_description_string"
         android:layout_alignParentStart="true"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -65,7 +84,10 @@
         android:id="@+id/rental_type_info"
         android:layout_below="@+id/rental_type_textview"
         android:layout_alignParentStart="true"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -73,6 +95,8 @@
         android:text="Place Order"
         android:id="@+id/submit_rental_button"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="#000000"
+        android:textColor="#ffffff"/>
 
 </RelativeLayout>

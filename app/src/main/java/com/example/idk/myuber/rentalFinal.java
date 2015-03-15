@@ -2,6 +2,7 @@ package com.example.idk.myuber;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Layout;
@@ -26,6 +27,8 @@ public class rentalFinal extends Activity implements View.OnClickListener {
 
     }
 
+
+
     public void launch_rent_button() {
         Intent intent = new Intent(this, Main_Activity.class);
         startActivity(intent);
@@ -37,6 +40,8 @@ public class rentalFinal extends Activity implements View.OnClickListener {
         setContentView(R.layout.rental_final);
         Button rent = (Button) findViewById(R.id.main_menu_button);
         rent.setOnClickListener(this);
+
+
 
         Httpget owner = new Httpget();
         JSONObject ownerInfo = new JSONObject();

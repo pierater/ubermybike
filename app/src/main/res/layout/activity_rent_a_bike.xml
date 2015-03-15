@@ -2,8 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/rent_bike">
-
+    android:id="@+id/rent_bike"
+    android:background="#000000"
+    android:textColor="#ffffff"
+    >
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +25,10 @@
         android:enabled="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="192dp" />
+        android:layout_marginBottom="192dp"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -32,7 +37,10 @@
         android:id="@+id/rent_button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:clickable="true" />
+        android:clickable="true"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -40,5 +48,8 @@
         android:text="Owner Profile"
         android:id="@+id/owner_profile_button"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 </RelativeLayout>
