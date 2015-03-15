@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class PostBike extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        test();
+//        test();
         return inflater.inflate(R.layout.activity_postbike1, container, false);
 
     }
