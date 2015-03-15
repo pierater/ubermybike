@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:id="@+id/Post_bike_page2">
+    android:id="@+id/Post_bike_page2"
+    android:clickable="false">
 
 
     <TextView
@@ -28,15 +29,19 @@
         android:text="@string/post_description_string" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:elevation="50dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Post"
         android:id="@+id/post_bike_post_button"
         android:layout_gravity="center_horizontal"
-        android:layout_alignParentLeft="true"
         android:layout_marginLeft="296dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="532dp" />
+        android:layout_marginTop="532dp"
+        android:backgroundTint="@color/abc_primary_text_material_dark"
+        style="@android:style/Holo.ButtonBar"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:layout_width="wrap_content"
