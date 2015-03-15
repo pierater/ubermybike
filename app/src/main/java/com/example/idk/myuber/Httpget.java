@@ -21,19 +21,22 @@ import java.io.InputStreamReader;
 
 public class Httpget {
 
-    String bike_lon;
-    String bike_lat;
-    String bike_num;
-    int bike_rating;
-    String owner_phone_num;
+    static String[][] coordinates = new String[2][10];
+    static String[] bike_nums = new String[10];
+    static int[] bike_ratings = new int[10];
+    static String[] owner_array_phone_num = new String[10];
+    static String[] owner_array_first_name = new String[10];
+    static String[] owner_array_last_name = new String[10];
+    static String cc;
+    static String email;
+    static int experience;
+    static int user_rating;
+    static int owner_rating;
+    static String[] bike_owner_nums = new String[10];
+    static int current_bikes;
     static String owner_first_name;
     static String owner_last_name;
-    String cc;
-    String email;
-    int experience;
-    int user_rating;
-    int owner_rating;
-    String bike_owner_num;
+    static String owner_phone_num;
 
 
     static JSONArray getJson(HttpEntity httpentity) {
@@ -145,8 +148,6 @@ public class Httpget {
                 Log.v("LOG", "EXCEPTION4N");
                 SetServerString = Client.execute(httpget);
                 ResponseHandler<String> handler = new BasicResponseHandler();
-                //String body = handler.handleResponse(SetServerString);
-                //Log.v("BODY", body);
 
                 Log.v("LOG", "EXCEPTION5N");
                 HttpEntity httpentity = SetServerString.getEntity();
@@ -202,20 +203,15 @@ public class Httpget {
 
         try {
             JSONObject temp = jObj.getJSONObject(0); //sweg
-            String first_name = temp.getString("first");
-            Log.v("LOGG", first_name);
-            owner_first_name = jObj.getJSONObject(0).toString();
-            owner_last_name = jObj.getJSONObject(0).toString();
-            Log.v("TEST", "NAME");
-            Log.v("LOG", owner_first_name);
-            Log.v("LOG", owner_last_name);
-            /*cc = jObj.getString("card");
-            owner_phone_num = jObj.getString("phone");
-            email = jObj.getString("email");
-            owner_rating = jObj.optInt("orating");
-            user_rating = jObj.optInt("urating");
-            experience = jObj.optInt("exp");
-            */
+            owner_first_name = temp.getString("first");
+            owner_last_name = temp.getString("last");
+            cc = temp.getString("card");
+            owner_phone_num = temp.getString("phone");
+            email = temp.getString("phone");
+            owner_rating = Integer.parseInt(temp.getString("orating"));
+            user_rating = Integer.parseInt(temp.getString("urating"));
+            experience = Integer.parseInt(temp.getString("exp"));
+
         }
         catch (Exception e) {
             Log.v("LOG", "EXCEPTIONN");
@@ -229,15 +225,18 @@ public class Httpget {
 
         try {
 
-            bike_num = jObj.getJSONObject(1).toString();
-            Log.v("TEST", bike_num);
-            /*
-             bike_num = jObj.getString("bikeid");
-             bike_rating = jObj.optInt("rating");
-             bike_lat = jObj.getString("lat");
-             bike_lon = jObj.getString("lon");
-             bike_owner_num = jObj.getString("owner");
-+            */
+            for(int i = 0; i < jObj.length(); i++) {
+
+                JSONObject temp = jObj.getJSONObject(i);
+                coordinates[current_bikes][0] = temp.getString("lat");
+                coordinates[current_bikes][1] = temp.getString("lon");
+                bike_nums[current_bikes] = temp.getString("bikeid");
+                bike_ratings[current_bikes] = Integer.parseInt(temp.getString("rating"));
+                bike_owner_nums[current_bikes] = temp.getString("owner");
+                current_bikes++;
+            }
+
+
         }
         catch (Exception e) {
             Log.v("LOG", "EXCEPTIONN");
@@ -263,15 +262,47 @@ public class Httpget {
 
     public int getExperience() { return experience;}
 
-    public String getBike_num() { return bike_num;}
+    public String getBike_nums(int index) { return bike_nums[index];}
 
-    public int getBike_rating() { return bike_rating;}
+    public int getBike_ratings(int index) { return bike_ratings[index];}
 
-    public String getBike_lat() { return bike_lat;}
+    public String[][] getCoordinates() { return coordinates;}
 
-    public String getBike_lon() { return bike_lon;}
+    public String getBike_owner_num(int index) { return bike_owner_nums[index];}
 
-    public String getBike_owner_num() { return bike_owner_num;}
+    public String getLat(int owner) {
+
+        for(int i = 0; i < current_bikes; i++) {
+
+            if(Integer.parseInt(bike_owner_nums[i]) == owner) {
+                return coordinates[i][0];
+            }
+        }
+        return null;
+    }
+
+    public String getLon(int owner) {
+
+        for(int i = 0; i < current_bikes; i++) {
+
+            if(Integer.parseInt(bike_owner_nums[i]) == owner) {
+                return coordinates[i][1];
+            }
+        }
+        return null;
+    }
+
+    public String getOwner(String lat, String lon) {
+
+        for(int i = 0; i < current_bikes; i++) {
+
+            if(coordinates[i][0].equals(lat) && coordinates[i][1].equals(lon)) {
+
+                return bike_owner_nums[i];
+            }
+        }
+        return null;
+    }
 
 }
 
