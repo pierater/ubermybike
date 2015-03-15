@@ -52,6 +52,21 @@ class MyAdapter extends FragmentPagerAdapter
 
     @Override
     public int getCount() {
+
         return 2;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+
+        if (position == 0)
+        {
+            return "Map";
+        }
+        if(position == 1)
+        {
+            return "Post Bike";
+        }
+        return null;
     }
 }

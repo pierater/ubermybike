@@ -53,25 +53,9 @@ public class MapsActivity extends Fragment {
 
     }
     private SupportMapFragment getMapFragment() {
-        FragmentManager fm = null;
+        Main_Activity.fragmentManager = getChildFragmentManager();
 
-        Log.d("DEBUG", "sdk: " + Build.VERSION.SDK_INT);
-        Log.d("DEBUG", "release: " + Build.VERSION.RELEASE);
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            Log.d("DEUG", "using getFragmentManager");
-            fm = getFragmentManager();
-        } else {
-            Log.d("DEBUG", "using getChildFragmentManager");
-            fm = getChildFragmentManager();
-        }
-
-        if(fm == null)
-            Log.d("DEBUG", "fm is null");
-        else
-            Log.d("DEBUG", "fm is not null");
-
-        SupportMapFragment t = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+        SupportMapFragment t = (SupportMapFragment) Main_Activity.fragmentManager.findFragmentById(R.id.map);
 
 
         return t;
