@@ -169,14 +169,14 @@ public class Httpget {
 
 
         try {
-            owner_first_name = (String)jObj.names().get(0);
-            owner_last_name = (String)jObj.names().get(1);
-            cc = (String)jObj.names().get(2);
-            owner_phone_num = (String)jObj.names().get(2);
-            email = (String)jObj.names().get(3);
-            owner_rating = (int)jObj.names().get(4);
-            user_rating = (int)jObj.names().get(5);
-            experience = (int)jObj.names().get(6);
+            owner_first_name = jObj.getString("first");
+            owner_last_name = jObj.getString("last");
+            cc = jObj.getString("card");
+            owner_phone_num = jObj.getString("phone");
+            email = jObj.getString("email");
+            owner_rating = jObj.optInt("orating");
+            user_rating = jObj.optInt("urating");
+            experience = jObj.optInt("exp");
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -190,11 +190,11 @@ public class Httpget {
 
         try {
 
-            bike_num = (String)jObj.names().get(1);
-            bike_rating = (int)jObj.names().get(2);
-            bike_lat = (String)jObj.names().get(3);
-            bike_lon = (String)jObj.names().get(4);
-            bike_owner_num = (String)jObj.names().get(5);
+            bike_num = jObj.getString("bikeid");
+            bike_rating = jObj.optInt("rating");
+            bike_lat = jObj.getString("lat");
+            bike_lon = jObj.getString("lon");
+            bike_owner_num = jObj.getString("owner");
         }
         catch (Exception e) {
             e.printStackTrace();
