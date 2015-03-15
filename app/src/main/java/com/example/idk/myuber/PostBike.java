@@ -20,7 +20,7 @@ import org.json.JSONObject;
  */
 
 
-public class PostBike extends Fragment {
+public class PostBike extends Fragment implements View.OnClickListener {
     private int requestCode;
     private int resultCode;
     private Intent data;
@@ -41,10 +41,11 @@ public class PostBike extends Fragment {
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+    }
+    public void launch_camera()
+    {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent,CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
-
-
     }
 
     @Override
@@ -78,4 +79,13 @@ public class PostBike extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId())
+        {
+            case R.id.launch_camera_button:
+                launch_camera();
+                break;
+        }
+    }
 }
