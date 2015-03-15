@@ -48,6 +48,8 @@ public class MapsActivity extends Fragment {
         view = (FrameLayout) inflater.inflate(R.layout.activity_maps, container, false);
         MapsActivity.context = getActivity().getApplicationContext();
         SetupMapIfNeeded();
+        Log.v("Map", "onCreate");
+
         return view;
     }
 
@@ -64,7 +66,8 @@ public class MapsActivity extends Fragment {
         }
         else
         {
-            SetupMap();
+            Log.v("Map", "Map creaeted");
+            makeMarkers();
         }
 
     }
@@ -102,6 +105,9 @@ public class MapsActivity extends Fragment {
 
     public static void makeMarkers() {
 
+        Log.v("Map","maleMaerler" );
+
+
         JSONArray array = new JSONArray();
         String[][] coordinates = bikes.getCoordinates();
         Log.v("LOG", "wefew" + String.valueOf(bikes.current_bikes));
@@ -110,18 +116,10 @@ public class MapsActivity extends Fragment {
             Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(coordinates[i][0]),Double.parseDouble(coordinates[i][1]))).icon(BitmapDescriptorFactory.fromResource(R.drawable.bike_marker)));
             Log.v("LOG","Here");
         }
-        position = mMap.addMarker(new MarkerOptions().position(new LatLng(36.999, -122)).title("Origin"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.7833,-122.4167), 8));
+        position = mMap.addMarker(new MarkerOptions().position(new LatLng(36.999630, -122.055105)).title("You Are Here"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(36.9999630,-122.055105), 16));
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        if(mMap != null) {
-            Main_Activity.fragmentManager.beginTransaction().remove(Main_Activity.fragmentManager.findFragmentById(R.id.map)).commit();
-            mMap = null;
-        }
-    }
 
     public void test() {
 
