@@ -21,6 +21,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONObject;
+
 
 public class MapsActivity extends Fragment {
 
@@ -43,6 +45,7 @@ public class MapsActivity extends Fragment {
 
     public void SetupMapIfNeeded()
     {
+        test();
         if(mMap == null)
         {
             mMap = getMapFragment().getMap();
@@ -75,5 +78,20 @@ public class MapsActivity extends Fragment {
             Main_Activity.fragmentManager.beginTransaction().remove(Main_Activity.fragmentManager.findFragmentById(R.id.map)).commit();
             mMap = null;
         }
+    }
+
+    public void test() {
+
+        String first_name;
+        String last_name;
+        Httpget tst = new Httpget();
+        JSONObject obj = new JSONObject();
+        obj = tst.getUser("1");
+        tst.parseUser(obj);
+        first_name = tst.getOwner_first_name();
+        last_name = tst.getOwner_last_name();
+        //Log.v("Post", "TEST");
+        //Log.v("Post", last_name);
+
     }
 }

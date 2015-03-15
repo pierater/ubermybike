@@ -15,27 +15,13 @@ import org.json.JSONObject;
  */
 public class PostBike extends Fragment {
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        test();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {;
         return inflater.inflate(R.layout.activity_postbike1, container, false);
 
     }
 
 
-    public void test() {
 
-        String first_name;
-        String last_name;
-        Httpget tst = new Httpget();
-        JSONObject obj = new JSONObject();
-        obj = tst.getUser("1");
-        tst.parseUser(obj);
-        first_name = tst.getOwner_first_name();
-        last_name = tst.getOwner_last_name();
-        Log.v("Post", first_name);
-        Log.v("Post", last_name);
-
-    }
 
 
 }
