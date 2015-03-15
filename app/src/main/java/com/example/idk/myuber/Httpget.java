@@ -197,6 +197,53 @@ public class Httpget {
         return result;
     }
 
+    public static void parseUser(JSONArray jObj) {
+
+
+        try {
+            JSONObject temp = jObj.getJSONObject(0); //sweg
+            String first_name = temp.getString("first");
+            Log.v("LOGG", first_name);
+            owner_first_name = jObj.getJSONObject(0).toString();
+            owner_last_name = jObj.getJSONObject(0).toString();
+            Log.v("TEST", "NAME");
+            Log.v("LOG", owner_first_name);
+            Log.v("LOG", owner_last_name);
+            /*cc = jObj.getString("card");
+            owner_phone_num = jObj.getString("phone");
+            email = jObj.getString("email");
+            owner_rating = jObj.optInt("orating");
+            user_rating = jObj.optInt("urating");
+            experience = jObj.optInt("exp");
+            */
+        }
+        catch (Exception e) {
+            Log.v("LOG", "EXCEPTIONN");
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public void parseBike(JSONArray jObj) {
+
+        try {
+
+            bike_num = jObj.getJSONObject(1).toString();
+            Log.v("TEST", bike_num);
+            /*
+             bike_num = jObj.getString("bikeid");
+             bike_rating = jObj.optInt("rating");
+             bike_lat = jObj.getString("lat");
+             bike_lon = jObj.getString("lon");
+             bike_owner_num = jObj.getString("owner");
++            */
+        }
+        catch (Exception e) {
+            Log.v("LOG", "EXCEPTIONN");
+            e.printStackTrace();
+        }
+    }
 
 
 
