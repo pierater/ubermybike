@@ -1,5 +1,8 @@
 package com.example.idk.myuber;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -17,26 +20,29 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URLEncoder;
 
 
 public class Httpget {
 
-    static String[][] coordinates = new String[2][10];
-    static String[] bike_nums = new String[10];
-    static int[] bike_ratings = new int[10];
-    static String[] owner_array_phone_num = new String[10];
-    static String[] owner_array_first_name = new String[10];
-    static String[] owner_array_last_name = new String[10];
+    static String[][] coordinates = new String[100][2];
+    static String[] bike_nums = new String[100];
+    static int[] bike_ratings = new int[100];
+    static String[] owner_array_phone_num = new String[100];
+    static String[] owner_array_first_name = new String[100];
+    static String[] owner_array_last_name = new String[100];
     static String cc;
     static String email;
     static int experience;
     static int user_rating;
     static int owner_rating;
-    static String[] bike_owner_nums = new String[10];
+    static String[] bike_owner_nums = new String[100];
     static int current_bikes;
     static String owner_first_name;
     static String owner_last_name;
     static String owner_phone_num;
+    static ProgressDialog progressDialog;
 
 
     static JSONArray getJson(HttpEntity httpentity) {
@@ -241,11 +247,15 @@ public class Httpget {
     public void parseBike(JSONArray jObj) {
 
         try {
+            Log.v("PARS", jObj.toString());
             Log.v("LOGSS", String.valueOf(jObj.length()));
-
+            Log.v("PARS", String.valueOf(jObj.length()));
+            Log.v("PARS", "Current" + String.valueOf(current_bikes));
+            current_bikes = 0;
             for (int i = 0; i < jObj.length(); i++) {
 
                 JSONObject temp = jObj.getJSONObject(i);
+                Log.v("PARS", temp.toString());
                 coordinates[current_bikes][0] = temp.getString("lat");
                 coordinates[current_bikes][1] = temp.getString("lon");
                 bike_nums[current_bikes] = temp.getString("bikeid");
@@ -255,6 +265,7 @@ public class Httpget {
                 current_bikes++;
 
             }
+            Log.v("PARS", String.valueOf(current_bikes));
 
 
         } catch (Exception e) {
@@ -346,20 +357,30 @@ public class Httpget {
         return null;
     }
 
-    public class newBike extends AsyncTask<String, Void, Void> {
+    public class newBike extends AsyncTask<String, Void, JSONArray> {
 
+        ProgressDialog pd;
         public newBike() {
             super();
         }
 
-        @Override
-        protected Void doInBackground(String... params) {
-            try {
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pd = new ProgressDialog(PostBike2.context);
+            pd.setMessage("Loading..");
+            pd.show();
+        }
+
+        @Override
+        protected JSONArray doInBackground(String... params) {
+            try {
+                Log.v("OOO", String.valueOf(params));
                 String owner = params[0];
-                String lat = params[0];
-                String lon = params[0];
-                String rating = params[0];
+                String lat = params[1];
+                String lon = params[2];
+                String rating = params[3];
 
                 JSONObject obj = new JSONObject();
                 obj.put("owner", owner);
@@ -367,7 +388,9 @@ public class Httpget {
                 obj.put("lon", lon);
                 obj.put("rating", rating);
 
-                String URL = "http://home.loosescre.ws/~keith/astwe/server.php?command=newbike&data=" + obj;
+                String URL = "http://home.loosescre.ws/~keith/astwe/server.php?command=newbike&data=" + Uri.encode(obj.toString());
+
+                //String s = URLEncoder.encode(URL);
                 HttpGet httpget = new HttpGet(URL);
                 //Log.v("URL", params[0]);
 
@@ -385,22 +408,29 @@ public class Httpget {
                 HttpEntity httpentity = SetServerString.getEntity();
 
 
-                JSONArray result = getJson(httpentity);
-                Log.v("RESULT", result.toString());
+                //JSONArray result = getJson(httpentity);
+                //Log.v("RESULT", result.toString());
+                return null;
             } catch (Exception e) {
-                Log.v("LOG", "EXCEPTION2N");
+                Log.v("LOGV", "EXCEPTION2N");
                 e.printStackTrace();
             }
             return null;
         }
 
-        //@Override
-        public void onPostExecute(JSONArray jobj) {
+        @Override
+        protected void onPostExecute(JSONArray jobj) {
+            if(jobj == null)
+                Log.v("JSONUESR", "null");
 
+            super.onPostExecute(jobj);
+            if(pd != null)
+                pd.dismiss();
+
+            Intent intent = new Intent(PostBike2.context, Main_Activity.class);
             MapsActivity.makeMarkers();
-            Log.v("JSONUSER", String.valueOf(jobj.length()));
+            PostBike2.context.startActivity(intent);
         }
-
 
     }
 }
