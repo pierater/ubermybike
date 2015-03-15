@@ -39,21 +39,18 @@ public class Httpget {
     static String owner_phone_num;
 
 
-
     static JSONArray getJson(HttpEntity httpentity) {
 
         InputStream is = null;
         String received;
         JSONArray jObj = null;
-        if(httpentity == null) {
+        if (httpentity == null) {
             Log.v("NULL", "ISNULL");
         }
 
         try {
             is = httpentity.getContent();
-        }
-
-        catch (IllegalStateException e1) {
+        } catch (IllegalStateException e1) {
             Log.v("LOG", "EXCEPTION7");
             e1.printStackTrace();
         } catch (IOException e1) {
@@ -62,7 +59,7 @@ public class Httpget {
         }
 
         try {
-            if(is == null) {
+            if (is == null) {
                 Log.d("ERRORR", "IT IS NULL");
             }
             BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
@@ -77,15 +74,14 @@ public class Httpget {
 
             received = sb.toString();
             Log.v("LOG", "EXCEPTION11");
-            if(received == null) {
+            if (received == null) {
                 Log.v("LOG", "EXCEPTION12");
             }
             Log.v("LOG", "received" + received);
 
             jObj = new JSONArray(received);
             Log.v("LOG", String.valueOf(jObj.length()));
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Log.v("LOG", "EXCEPTION1N");
             e.printStackTrace();
 
@@ -153,7 +149,7 @@ public class Httpget {
         @Override
         protected JSONArray doInBackground(String... params) {
             try {
-                String URL = "http://home.loosescre.ws/~keith/astwe/server.php?command=user&number="+ params[0];
+                String URL = "http://home.loosescre.ws/~keith/astwe/server.php?command=user&number=" + params[0];
                 HttpGet httpget = new HttpGet(URL);
                 Log.v("URL", params[0]);
 
@@ -174,8 +170,7 @@ public class Httpget {
                 JSONArray result = getJson(httpentity);
                 Log.v("RESULT", result.toString());
                 return result;
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Log.v("LOG", "EXCEPTION2N");
                 e.printStackTrace();
             }
@@ -190,7 +185,7 @@ public class Httpget {
         }
 
 
-            }
+    }
 
     public JSONArray newBike(Bike new_bike) {
 
@@ -213,9 +208,7 @@ public class Httpget {
 
             result = getJson(httpentity);
 
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
             Log.v("LOG", "EXCEPTIONN");
             e.printStackTrace();
         }
@@ -237,8 +230,7 @@ public class Httpget {
             user_rating = Integer.parseInt(temp.getString("urating"));
             experience = Integer.parseInt(temp.getString("exp"));
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Log.v("LOG", "EXCEPTIONN");
             e.printStackTrace();
         }
@@ -251,7 +243,7 @@ public class Httpget {
         try {
             Log.v("LOGSS", String.valueOf(jObj.length()));
 
-            for(int i = 0; i < jObj.length(); i++) {
+            for (int i = 0; i < jObj.length(); i++) {
 
                 JSONObject temp = jObj.getJSONObject(i);
                 coordinates[current_bikes][0] = temp.getString("lat");
@@ -265,44 +257,66 @@ public class Httpget {
             }
 
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             //Log.v("LOG", String.valueOf(jObj.length()));
             e.printStackTrace();
         }
     }
 
 
+    public String getOwner_first_name() {
+        return owner_first_name;
+    }
 
-    public String getOwner_first_name() { return owner_first_name;}
+    public String getOwner_last_name() {
+        return owner_last_name;
+    }
 
-    public String getOwner_last_name() { return owner_last_name;}
+    public String getCc() {
+        return cc;
+    }
 
-    public String getCc() { return cc;}
+    public String getOwner_phone_num() {
+        return owner_phone_num;
+    }
 
-    public String getOwner_phone_num() { return owner_phone_num;}
+    public String getEmail() {
+        return email;
+    }
 
-    public String getEmail() { return email;}
+    public int getOwner_rating() {
+        return owner_rating;
+    }
 
-    public int getOwner_rating() { return  owner_rating;}
+    public int getUser_rating() {
+        return user_rating;
+    }
 
-    public int getUser_rating() { return user_rating;}
+    public int getExperience() {
+        return experience;
+    }
 
-    public int getExperience() { return experience;}
+    public String getBike_nums(int index) {
+        return bike_nums[index];
+    }
 
-    public String getBike_nums(int index) { return bike_nums[index];}
+    public int getBike_ratings(int index) {
+        return bike_ratings[index];
+    }
 
-    public int getBike_ratings(int index) { return bike_ratings[index];}
+    public String[][] getCoordinates() {
+        return coordinates;
+    }
 
-    public String[][] getCoordinates() { return coordinates;}
-
-    public String getBike_owner_num(int index) { return bike_owner_nums[index];}
+    public String getBike_owner_num(int index) {
+        return bike_owner_nums[index];
+    }
 
     public String getLat(int owner) {
 
-        for(int i = 0; i < current_bikes; i++) {
+        for (int i = 0; i < current_bikes; i++) {
 
-            if(Integer.parseInt(bike_owner_nums[i]) == owner) {
+            if (Integer.parseInt(bike_owner_nums[i]) == owner) {
                 return coordinates[i][0];
             }
         }
@@ -311,9 +325,9 @@ public class Httpget {
 
     public String getLon(int owner) {
 
-        for(int i = 0; i < current_bikes; i++) {
+        for (int i = 0; i < current_bikes; i++) {
 
-            if(Integer.parseInt(bike_owner_nums[i]) == owner) {
+            if (Integer.parseInt(bike_owner_nums[i]) == owner) {
                 return coordinates[i][1];
             }
         }
@@ -322,9 +336,9 @@ public class Httpget {
 
     public String getOwner(String lat, String lon) {
 
-        for(int i = 0; i < current_bikes; i++) {
+        for (int i = 0; i < current_bikes; i++) {
 
-            if(coordinates[i][0].equals(lat) && coordinates[i][1].equals(lon)) {
+            if (coordinates[i][0].equals(lat) && coordinates[i][1].equals(lon)) {
 
                 return bike_owner_nums[i];
             }
@@ -332,6 +346,62 @@ public class Httpget {
         return null;
     }
 
+    public class newBike extends AsyncTask<String, Void, Void> {
 
+        public newBike() {
+            super();
+        }
+
+        @Override
+        protected Void doInBackground(String... params) {
+            try {
+
+                String owner = params[0];
+                String lat = params[0];
+                String lon = params[0];
+                String rating = params[0];
+
+                JSONObject obj = new JSONObject();
+                obj.put("owner", owner);
+                obj.put("lat", lat);
+                obj.put("lon", lon);
+                obj.put("rating", rating);
+
+                String URL = "http://home.loosescre.ws/~keith/astwe/server.php?command=newbike&data=" + obj;
+                HttpGet httpget = new HttpGet(URL);
+                //Log.v("URL", params[0]);
+
+                ResponseHandler<String> responseHandler = new BasicResponseHandler();
+
+                HttpResponse SetServerString;
+                Log.v("LOG", "EXCEPTION3N");
+                HttpClient Client = new DefaultHttpClient();
+                HttpConnectionParams.setConnectionTimeout(Client.getParams(), 10000);
+                Log.v("LOG", "EXCEPTION4N");
+                SetServerString = Client.execute(httpget);
+                ResponseHandler<String> handler = new BasicResponseHandler();
+
+                Log.v("LOG", "EXCEPTION5N");
+                HttpEntity httpentity = SetServerString.getEntity();
+
+
+                JSONArray result = getJson(httpentity);
+                Log.v("RESULT", result.toString());
+            } catch (Exception e) {
+                Log.v("LOG", "EXCEPTION2N");
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        //@Override
+        public void onPostExecute(JSONArray jobj) {
+
+            MapsActivity.makeMarkers();
+            Log.v("JSONUSER", String.valueOf(jobj.length()));
+        }
+
+
+    }
 }
 
