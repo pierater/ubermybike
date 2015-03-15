@@ -205,7 +205,7 @@ public class Httpget {
 
 
         try {
-            JSONObject temp = jObj.getJSONObject(0);
+            JSONObject temp = jObj.getJSONObject(0); //sweg
             String first_name = temp.getString("first");
             Log.v("LOGG", first_name);
             owner_first_name = jObj.getJSONObject(0).toString();
