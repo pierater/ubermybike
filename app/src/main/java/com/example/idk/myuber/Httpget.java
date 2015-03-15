@@ -111,26 +111,27 @@ public class Httpget {
                 String lon = "-122.054";
                 String URL = "http://home.loosescre.ws/~keith/astwe/server.php?command=bike&lat=36.9999&lon=-122.054";
                 HttpGet httpget = new HttpGet(URL);
-                Log.v("URL1", URL);
+                Log.v("URL1V", URL);
                 ResponseHandler<String> responseHandler = new BasicResponseHandler();
 
                 HttpResponse SetServerString;
-                Log.v("LOG", "EXCEPTION3N");
+                Log.v("LOGV", "EXCEPTION3N");
                 HttpClient Client = new DefaultHttpClient();
                 HttpConnectionParams.setConnectionTimeout(Client.getParams(), 10000);
-                Log.v("LOG", "EXCEPTION4N");
+                Log.v("LOGV", "EXCEPTION4N");
                 SetServerString = Client.execute(httpget);
                 ResponseHandler<String> handler = new BasicResponseHandler();
 
-                Log.v("LOG", "EXCEPTION5N");
+                Log.v("LOGV", "EXCEPTION5N");
                 HttpEntity httpentity = SetServerString.getEntity();
 
 
                 JSONArray result = getJson(httpentity);
-                Log.v("RESULT", result.toString());
+                Log.v("LOGV", "EXCEPTION5N");
+                Log.v("RESULTV", result.toString());
                 return result;
             } catch (Exception e) {
-                Log.v("LOG", "EXCEPTION2N");
+                Log.v("LOGV", "EXCEPTION2N");
                 e.printStackTrace();
             }
             return null;
@@ -235,6 +236,8 @@ public class Httpget {
             owner_rating = Integer.parseInt(temp.getString("orating"));
             user_rating = Integer.parseInt(temp.getString("urating"));
             experience = Integer.parseInt(temp.getString("exp"));
+            Log.v("PARSE", owner_first_name);
+
 
         } catch (Exception e) {
             Log.v("LOG", "EXCEPTIONN");
@@ -247,11 +250,7 @@ public class Httpget {
     public void parseBike(JSONArray jObj) {
 
         try {
-            Log.v("PARS", jObj.toString());
-            Log.v("LOGSS", String.valueOf(jObj.length()));
-            Log.v("PARS", String.valueOf(jObj.length()));
-            Log.v("PARS", "Current" + String.valueOf(current_bikes));
-            current_bikes = 0;
+
             for (int i = 0; i < jObj.length(); i++) {
 
                 JSONObject temp = jObj.getJSONObject(i);

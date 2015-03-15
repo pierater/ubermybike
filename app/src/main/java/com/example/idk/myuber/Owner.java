@@ -20,12 +20,13 @@ public class Owner extends Activity {
         Httpget owner = new Httpget();
         JSONObject ownerInfo = new JSONObject();
         AsyncTask<String,Void, JSONArray> task = owner.new myTask().execute("1");
-        String fname = owner.getOwner_first_name();
-        String lname = owner.getOwner_last_name();
-        String phoneNumber = owner.getOwner_phone_num();
-        String email = owner.getEmail();
-        String rating = String.valueOf(owner.getOwner_rating());
-        String experience = String.valueOf(owner.getExperience());
+        String fname ="George "; //owner.getOwner_first_name();
+        String lname ="Jetson"; //owner.getOwner_last_name();
+        String phoneNumber = "831-555-1212";//owner.getOwner_phone_num();
+        String email ="george@jetson.com"; //owner.getEmail();
+        String rating = "5";//String.valueOf(owner.getOwner_rating());
+        String experience ="10"; //String.valueOf(owner.getExperience());
+
         TextView txtview =(TextView)findViewById(R.id.owner_name);
         txtview.setText(fname+ " " + lname);
         TextView pnum =(TextView)findViewById(R.id.owner_phonenumber);
