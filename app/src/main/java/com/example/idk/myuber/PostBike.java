@@ -28,12 +28,15 @@ public class PostBike extends Fragment implements View.OnClickListener {
 
 
     Button next;
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 //        test();
-
-        return inflater.inflate(R.layout.activity_postbike1, container, false);
+        view = inflater.inflate(R.layout.activity_postbike1, container, false);
+        Button launch = (Button) view.findViewById(R.id.launch_camera_button);
+        launch.setOnClickListener(this);
+        return view;
 
     }
 
