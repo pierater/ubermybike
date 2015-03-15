@@ -1,5 +1,6 @@
 package com.example.idk.myuber;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -31,6 +32,7 @@ public class MapsActivity extends Fragment {
 
 
     private static GoogleMap mMap = null;
+    private static Context context = null;
     private static Marker position = null;
     private SupportMapFragment fragment;
     public static Httpget bikes = new Httpget();
@@ -43,6 +45,7 @@ public class MapsActivity extends Fragment {
         if(container == null)
             return null;
         view = (FrameLayout) inflater.inflate(R.layout.activity_maps, container, false);
+        MapsActivity.context = getActivity().getApplicationContext();
         SetupMapIfNeeded();
         return view;
     }
@@ -69,12 +72,21 @@ public class MapsActivity extends Fragment {
         return t;
 }
 
-    private static void SetupMap()
+    private void SetupMap()
     {
 
         JSONObject obj = new JSONObject();
         AsyncTask<String, Void, JSONArray> task = bikes.new bikeTask();
         task.execute("string");
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener()
+        {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                Intent intent = new Intent(getActivity(), rentABike.class);
+                getActivity().startActivity(intent);
+                return false;
+            }
+        });
 
         //Log.v("LOGS", String.valueOf(array.length()));
         //bikes.parseBike(array);
@@ -87,7 +99,7 @@ public class MapsActivity extends Fragment {
 
         JSONArray array = new JSONArray();
         String[][] coordinates = bikes.getCoordinates();
-        Log.v("LOG","wefew" + String.valueOf(bikes.current_bikes));
+        Log.v("LOG", "wefew" + String.valueOf(bikes.current_bikes));
         for(int i = 0; i < bikes.current_bikes; i++)
         {
             Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(coordinates[i][0]),Double.parseDouble(coordinates[i][1]))));
@@ -96,12 +108,7 @@ public class MapsActivity extends Fragment {
         position = mMap.addMarker(new MarkerOptions().position(new LatLng(36.999, -122)).title("Origin"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.7833,-122.4167), 8));
     }
-    public boolean onMarkClick(Marker marker)
-    {
-        Intent intent = new Intent(getActivity(), rentABike.class);
-        startActivity(intent);
-        return true;
-    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
