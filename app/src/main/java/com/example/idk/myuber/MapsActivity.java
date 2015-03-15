@@ -19,6 +19,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 
 import com.google.android.gms.maps.model.Marker;
@@ -106,7 +107,7 @@ public class MapsActivity extends Fragment {
         Log.v("LOG", "wefew" + String.valueOf(bikes.current_bikes));
         for(int i = 0; i < bikes.current_bikes; i++)
         {
-            Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(coordinates[i][0]),Double.parseDouble(coordinates[i][1]))));
+            Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(coordinates[i][0]),Double.parseDouble(coordinates[i][1]))).icon(BitmapDescriptorFactory.fromResource(R.drawable.bike_marker)));
             Log.v("LOG","Here");
         }
         position = mMap.addMarker(new MarkerOptions().position(new LatLng(36.999, -122)).title("Origin"));
