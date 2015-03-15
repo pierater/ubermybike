@@ -1,5 +1,6 @@
 package com.example.idk.myuber;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v4.app.Fragment;
@@ -82,7 +83,12 @@ public class MapsActivity extends Fragment {
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.7833,-122.4167), 8));
 
     }
-
+    public boolean onMarkClick(Marker marker)
+    {
+        Intent intent = new Intent(getActivity(), rentABike.class);
+        startActivity(intent);
+        return true;
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
