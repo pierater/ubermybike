@@ -64,7 +64,8 @@
         android:layout_weight="0.04"
         android:layout_gravity="right"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"

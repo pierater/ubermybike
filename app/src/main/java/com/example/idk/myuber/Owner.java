@@ -3,6 +3,7 @@ package com.example.idk.myuber;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -25,6 +26,17 @@ public class Owner extends Activity {
         String email = owner.getEmail();
         String rating = String.valueOf(owner.getOwner_rating());
         String experience = String.valueOf(owner.getExperience());
+        TextView txtview =(TextView)findViewById(R.id.owner_name);
+        txtview.setText(fname+ " " + lname);
+        TextView pnum =(TextView)findViewById(R.id.owner_phonenumber);
+        txtview.setText(phoneNumber);
+        TextView maile =(TextView)findViewById(R.id.owner_email);
+        txtview.setText(email);
+        TextView rate =(TextView)findViewById(R.id.owner_rating);
+        txtview.setText(rating);
+        TextView exp =(TextView)findViewById(R.id.owner_experience);
+        txtview.setText(experience);
+
        }
 
    }
