@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.Button;
@@ -27,7 +28,7 @@ public class PostBike extends Fragment implements View.OnClickListener {
     private int resultCode;
     private Intent data;
 
-
+    String uri;
     Button next;
     View view;
 
@@ -52,12 +53,17 @@ public class PostBike extends Fragment implements View.OnClickListener {
     public void launch_camera()
     {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent,CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+        startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
     }
     public void next_page()
     {
         Intent intent = new Intent(getActivity(), PostBike2.class);
+        EditText edittext = (EditText)view.findViewById(R.id.post_description_string);
+        String description = edittext.getText().toString();
+        intent.putExtra("1",description);
+        intent.putExtra("0",uri);
         startActivity(intent);
+
     }
 
     @Override
@@ -69,6 +75,7 @@ public class PostBike extends Fragment implements View.OnClickListener {
                         //intent.getData(), Toast.LENGTH_LONG).show();
                 ImageView imgview =(ImageView)view.findViewById(R.id.pic_of_bike_post);
                 Uri imgUri=Uri.parse(intent.getData().toString());
+                uri = intent.getData().toString();
                 imgview.setImageURI(null);
                 imgview.setImageURI(imgUri);
             } else if (resultCode == getActivity().RESULT_CANCELED) {
