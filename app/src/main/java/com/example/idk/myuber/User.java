@@ -1,6 +1,7 @@
 import com.example.idk.myuber.Bike;
 import com.example.idk.myuber.Httpget;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class User {
@@ -22,7 +23,7 @@ public class User {
         String bike_lat;
         String bike_lon;
         Httpget get;
-        JSONObject obj = null;
+        JSONArray obj = null;
         get = new Httpget();
         obj = get.getBike("36.99", "-122");
         get.parseBike(obj);
