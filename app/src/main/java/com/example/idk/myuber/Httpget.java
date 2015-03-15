@@ -225,12 +225,14 @@ public class Httpget {
 
         try {
 
+
             for(int i = 0; i < jObj.length(); i++) {
 
                 JSONObject temp = jObj.getJSONObject(i);
                 coordinates[current_bikes][0] = temp.getString("lat");
                 coordinates[current_bikes][1] = temp.getString("lon");
                 bike_nums[current_bikes] = temp.getString("bikeid");
+
                 bike_ratings[current_bikes] = Integer.parseInt(temp.getString("rating"));
                 bike_owner_nums[current_bikes] = temp.getString("owner");
                 current_bikes++;

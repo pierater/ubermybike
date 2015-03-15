@@ -68,6 +68,16 @@ public class MapsActivity extends Fragment {
 
     private static void SetupMap()
     {
+        Httpget bikes = new Httpget();
+        JSONArray array = bikes.getBike("36.999900","-122.054");
+        bikes.parseBike(array);
+        String[][] coordinates = bikes.getCoordinates();
+        Log.v("LOG","wefew" + String.valueOf(bikes.current_bikes));
+        for(int i = 0; i < bikes.current_bikes; i++)
+        {
+            Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(coordinates[i][0]),Double.parseDouble(coordinates[i][1]))));
+            Log.v("LOG","Here");
+        }
         position = mMap.addMarker(new MarkerOptions().position(new LatLng(36.999, -122)).title("Origin"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.7833,-122.4167), 8));
 
