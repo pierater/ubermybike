@@ -37,6 +37,7 @@ public class PostBike extends Fragment implements View.OnClickListener {
         view = inflater.inflate(R.layout.activity_postbike1, container, false);
         Button launch = (Button) view.findViewById(R.id.launch_camera_button);
         next = (Button) view.findViewById(R.id.next_button);
+        next.setOnClickListener(this);
         launch.setOnClickListener(this);
         return view;
 
@@ -55,7 +56,8 @@ public class PostBike extends Fragment implements View.OnClickListener {
     }
     public void next_page()
     {
-        Intent intent = new Intent()
+        Intent intent = new Intent(getActivity(), PostBike2.class);
+        startActivity(intent);
     }
 
     @Override
@@ -101,6 +103,8 @@ public class PostBike extends Fragment implements View.OnClickListener {
                 launch_camera();
                 break;
             case R.id.next_button:
+                next_page();
+                break;
 
         }
     }
