@@ -13,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:textSize="30dp"
-        android:text="Owner Name"
+        android:text="Owner Name \nGeorge Jetson"
         android:background="#000000"
         android:textColor="#ffffff"
         />
@@ -24,7 +24,6 @@
         android:text="George Jetson"
         android:id="@+id/owner_name_info"
         android:layout_below="@+id/owners_info_textview"
-        android:layout_alignParentStart="true"
         android:textSize="25dp"
         android:background="#000000"
         android:textColor="#ffffff"/>
