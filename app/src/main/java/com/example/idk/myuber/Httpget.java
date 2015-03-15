@@ -127,13 +127,13 @@ public class Httpget {
                 JSONArray result = getJson(httpentity);
                 Log.v("RESULT", result.toString());
                 return result;
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Log.v("LOG", "EXCEPTION2N");
                 e.printStackTrace();
             }
             return null;
         }
+
         @Override
         public void onPostExecute(JSONArray jobj) {
 
@@ -141,49 +141,8 @@ public class Httpget {
             MapsActivity.makeMarkers();
             Log.v("JSON", String.valueOf(jobj.length()));
         }
-
-
     }
-/*
-    public JSONArray getBike(String lat, String lon) {
 
-        String URL = "http://home.loosescre.ws/~keith/astwe/server.php?command=bike&lat=";
-        URL += lat;
-        URL += "&lon=";
-        URL += lon;
-        JSONArray result = null;
-
-        try {
-
-            HttpGet httpget = new HttpGet(URL);
-            Log.v("G", "1");
-            ResponseHandler<String> responseHandler = new BasicResponseHandler();
-            Log.v("G", "2");
-            HttpResponse SetServerString;
-            Log.v("G", "3");
-            HttpClient Client = new DefaultHttpClient();
-            Log.v("G", "4");
-            SetServerString = Client.execute(httpget);
-            Log.v("G", "5");
-
-            HttpEntity httpentity = SetServerString.getEntity();
-            Log.v("G", "6");
-
-
-            result = getJson(httpentity);
-            Log.v("G", "7");
-            return result;
-
-        }
-
-        catch (Exception e) {
-            Log.v("LOG", "EXCEPTION1N");
-            e.printStackTrace();
-        }
-        Log.v("TESTING", "Returnec");
-        return result;
-    }
-*/
 
     public class myTask extends AsyncTask<String, Void, JSONArray> {
 
