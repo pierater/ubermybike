@@ -20,16 +20,18 @@ public class PostBike2 extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_postbike_two);
         Intent intent = getIntent();
         String description =intent.getStringExtra("1");
         String uri = getIntent().getStringExtra("0");
-        ImageView imgview =(ImageView)findViewById(R.id.pic_of_bike_post);
+        ImageView imgview =(ImageView)findViewById(R.id.rent_bike_image);
         Uri imgUri=Uri.parse(uri);
-        uri = intent.getData().toString();
-        imgview.setImageURI(null);
         imgview.setImageURI(imgUri);
         TextView txtview =(TextView)findViewById(R.id.post_description_string);
         txtview.setText(description);
-        setContentView(R.layout.activity_postbike_two);
+
+    }
+    protected void onDestroy(){
+        super.onDestroy();
     }
 }

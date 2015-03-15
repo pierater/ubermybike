@@ -33,7 +33,7 @@ public class Httpget {
     static int user_rating;
     static int owner_rating;
     static String[] bike_owner_nums = new String[10];
-    static int current_bikes;
+    static int current_bikes = 0;
     static String owner_first_name;
     static String owner_last_name;
     static String owner_phone_num;
@@ -225,12 +225,14 @@ public class Httpget {
 
         try {
 
+
             for(int i = 0; i < jObj.length(); i++) {
 
                 JSONObject temp = jObj.getJSONObject(i);
                 coordinates[current_bikes][0] = temp.getString("lat");
                 coordinates[current_bikes][1] = temp.getString("lon");
                 bike_nums[current_bikes] = temp.getString("bikeid");
+
                 bike_ratings[current_bikes] = Integer.parseInt(temp.getString("rating"));
                 bike_owner_nums[current_bikes] = temp.getString("owner");
                 current_bikes++;
@@ -239,7 +241,7 @@ public class Httpget {
 
         }
         catch (Exception e) {
-            Log.v("LOG", "EXCEPTIONN");
+            Log.v("LOG", String.valueOf(jObj.length()));
             e.printStackTrace();
         }
     }
@@ -303,6 +305,7 @@ public class Httpget {
         }
         return null;
     }
+
 
 }
 
