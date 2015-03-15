@@ -25,7 +25,7 @@ public class User {
         Httpget get;
         JSONArray obj = null;
         get = new Httpget();
-        obj = get.getBike("36.99", "-122");
+        //obj = get.getBike("36.99", "-122");
         get.parseBike(obj);
         //bike_lat = get.getBike_lat();
         //bike_lon = get.getBike_lon();

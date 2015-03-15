@@ -66,7 +66,7 @@ class MyAdapter extends FragmentPagerAdapter
 
         if (position == 0)
         {
-            return "Map";
+            return "Return Bike";
         }
         if(position == 1)
         {
