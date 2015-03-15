@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.Button;
 
@@ -53,8 +54,9 @@ public class PostBike extends Fragment implements View.OnClickListener {
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             if (resultCode == getActivity().RESULT_OK) {
                 // Image captured and saved to fileUri specified in the Intent
-                Toast.makeText(getActivity(), "Image saved to:\n" +
-                        intent.getData(), Toast.LENGTH_LONG).show();
+               // Toast.makeText(getActivity(), "Image saved to:\n" +
+                        //intent.getData(), Toast.LENGTH_LONG).show();
+                ImageView imgview =(ImageView)getActivity().findViewById()
             } else if (resultCode == getActivity().RESULT_CANCELED) {
                 // User cancelled the image capture
             } else {
