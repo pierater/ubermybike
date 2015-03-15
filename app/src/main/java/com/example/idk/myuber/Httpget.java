@@ -33,7 +33,7 @@ public class Httpget {
     static int user_rating;
     static int owner_rating;
     static String[] bike_owner_nums = new String[10];
-    static int current_bikes;
+    static int current_bikes = 0;
     static String owner_first_name;
     static String owner_last_name;
     static String owner_phone_num;
@@ -303,6 +303,7 @@ public class Httpget {
         }
         return null;
     }
+
 
 }
 
