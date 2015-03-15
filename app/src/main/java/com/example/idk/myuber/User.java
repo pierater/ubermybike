@@ -5,16 +5,18 @@ import org.json.JSONObject;
 
 public class User {
 
-    public String name;
-    public Bike bike;
-    public String phone_number;
-    public String email;
-    public int rating;
-    public int experience;
+    private String first_name;
+    private String last_name;
+    private Bike bike;
+    private String phone_number;
+    private String email;
+    private int rating;
+    private int experience;
 
-    public User(String startname, String startphone_number, String startemail, Bike bike) {
+    public User(String start_first_name,String start_last_name, String startphone_number, String startemail, Bike bike) {
 
-        name = startname;
+        first_name = start_first_name;
+        last_name = start_last_name;
         phone_number = startphone_number;
         email = startemail;
         String bike_lat;
@@ -30,33 +32,17 @@ public class User {
 
     }
 
-    public String getName() {
+    public String getFirst_name() { return first_name;}
 
-        return name;
-    }
+    public String getLast_name() { return last_name;}
 
-    public Bike getBike() {
+    public Bike getBike() { return bike;}
 
-        return bike;
-    }
+    public String getPhone_number() { return phone_number;}
 
-    public String getPhone_number() {
+    public String getEmail() { return email;}
 
-        return phone_number;
-    }
+    public int getRating() { return rating;}
 
-    public String getEmail() {
-
-        return email;
-    }
-
-    public int getRating() {
-
-        return rating;
-    }
-
-    public int getExperience() {
-
-        return experience;
-    }
+    public int getExperience() { return experience;}
 }

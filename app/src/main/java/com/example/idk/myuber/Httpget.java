@@ -134,6 +134,37 @@ public class Httpget {
         return result;
     }
 
+    public JSONObject newBike(Bike new_bike) {
+
+        String URL = "http://home.loosescre.ws/~keith/astwe/server.php?commabd=newbike&data=";
+
+        JSONObject result = null;
+
+
+        try {
+
+            HttpGet httpget = new HttpGet(URL);
+            ResponseHandler<String> responseHandler = new BasicResponseHandler();
+
+            HttpResponse SetServerString;
+            HttpClient Client = new DefaultHttpClient();
+            SetServerString = Client.execute(httpget);
+
+            HttpEntity httpentity = SetServerString.getEntity();
+
+
+            result = getJson(httpentity);
+
+        }
+
+        catch (Exception e) {
+
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
     public void parseUser(JSONObject jObj) {
 
 
@@ -170,70 +201,31 @@ public class Httpget {
         }
     }
 
-    public String getOwner_first_name() {
+    public String getOwner_first_name() { return owner_first_name;}
 
-        return owner_first_name;
-    }
+    public String getOwner_last_name() { return owner_last_name;}
 
-    public String getOwner_last_name() {
+    public String getCc() { return cc;}
 
-        return owner_last_name;
-    }
+    public String getOwner_phone_num() { return owner_phone_num;}
 
-    public String getCc() {
+    public String getEmail() { return email;}
 
-        return cc;
-    }
+    public int getOwner_rating() { return  owner_rating;}
 
-    public String getOwner_phone_num() {
+    public int getUser_rating() { return user_rating;}
 
-        return owner_phone_num;
-    }
+    public int getExperience() { return experience;}
 
-    public String getEmail() {
+    public String getBike_num() { return bike_num;}
 
-        return email;
-    }
+    public int getBike_rating() { return bike_rating;}
 
-    public int getOwner_rating() {
+    public String getBike_lat() { return bike_lat;}
 
-        return  owner_rating;
-    }
+    public String getBike_lon() { return bike_lon;}
 
-    public int getUser_rating() {
-
-        return user_rating;
-    }
-
-    public int getExperience() {
-
-        return experience;
-    }
-
-    public String getBike_num() {
-
-        return bike_num;
-    }
-
-    public int getBike_rating() {
-
-        return bike_rating;
-    }
-
-    public String getBike_lat() {
-
-        return bike_lat;
-    }
-
-    public String getBike_lon() {
-
-        return bike_lon;
-    }
-
-    public String getBike_owner_num() {
-
-        return bike_owner_num;
-    }
+    public String getBike_owner_num() { return bike_owner_num;}
 
 }
 
