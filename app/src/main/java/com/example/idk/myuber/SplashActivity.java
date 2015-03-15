@@ -11,7 +11,7 @@ import android.os.Handler;
  * Created by Gabriel on 3/14/2015.
  */
 public class SplashActivity extends Activity {
-    private static final int SPLASH_SHOW_TIME = 1000;
+    private static final int SPLASH_SHOW_TIME = 2000;
 
     @Override
     protected  void onCreate(Bundle savedInstanceState){
