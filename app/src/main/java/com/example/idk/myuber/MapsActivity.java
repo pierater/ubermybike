@@ -47,10 +47,11 @@ public class MapsActivity extends Fragment {
 
     public void SetupMapIfNeeded()
     {
-        test();
+        //test();
         if(mMap == null)
         {
             mMap = getMapFragment().getMap();
+            Log.v("MAP", mMap.toString());
             if(mMap != null)
                 SetupMap();
 
@@ -69,8 +70,12 @@ public class MapsActivity extends Fragment {
     private static void SetupMap()
     {
         Httpget bikes = new Httpget();
-        JSONArray array = bikes.getBike("36.999900","-122.054");
-        bikes.parseBike(array);
+        JSONObject obj = new JSONObject();
+        AsyncTask<String, Void, JSONArray> task = bikes.new bikeTask();
+        task.execute("string");
+        JSONArray array = new JSONArray();
+        //Log.v("LOGS", String.valueOf(array.length()));
+        //bikes.parseBike(array);
         String[][] coordinates = bikes.getCoordinates();
         Log.v("LOG","wefew" + String.valueOf(bikes.current_bikes));
         for(int i = 0; i < bikes.current_bikes; i++)
