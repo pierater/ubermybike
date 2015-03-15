@@ -3,5 +3,10 @@
     android:id="@+id/pager"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
+    <android.support.v4.view.PagerTabStrip
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:id="@+id/">
+    </android.support.v4.view.PagerTabStrip>
 
 </android.support.v4.view.ViewPager>

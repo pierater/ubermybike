@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,10 +15,14 @@ import org.json.JSONObject;
 /**
  * Created by Mikaami13 on 3/14/2015.
  */
+
+
 public class PostBike extends Fragment {
+    Button next;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 //        test();
+
         return inflater.inflate(R.layout.activity_postbike1, container, false);
 
     }
@@ -33,7 +38,7 @@ public class PostBike extends Fragment {
         tst.parseUser(obj);
         first_name = tst.getOwner_first_name();
         last_name = tst.getOwner_last_name();
-        Log.v("Post", first_name);
+        Log.v("Post", first_name) ;
         Log.v("Post", last_name);
 
     }

@@ -163,11 +163,7 @@ public class Httpget {
             return null;
         }
 
-        @Override
-        protected void onPostExecute(JSONArray obj) {
-            parseUser(obj);
-            Log.v("ERROR", "EXCEPTION6N");
-        }
+
             }
 
     public JSONArray newBike(Bike new_bike) {
@@ -236,18 +232,20 @@ public class Httpget {
             bike_num = jObj.getJSONObject(1).toString();
             Log.v("TEST", bike_num);
             /*
-            bike_num = jObj.getString("bikeid");
-            bike_rating = jObj.optInt("rating");
-            bike_lat = jObj.getString("lat");
-            bike_lon = jObj.getString("lon");
-            bike_owner_num = jObj.getString("owner");
-            */
+             bike_num = jObj.getString("bikeid");
+             bike_rating = jObj.optInt("rating");
+             bike_lat = jObj.getString("lat");
+             bike_lon = jObj.getString("lon");
+             bike_owner_num = jObj.getString("owner");
++            */
         }
         catch (Exception e) {
             Log.v("LOG", "EXCEPTIONN");
             e.printStackTrace();
         }
     }
+
+
 
     public String getOwner_first_name() { return owner_first_name;}
 
