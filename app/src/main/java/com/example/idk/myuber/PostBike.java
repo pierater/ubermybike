@@ -1,6 +1,7 @@
 package com.example.idk.myuber;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.Button;
 
@@ -20,19 +22,24 @@ import org.json.JSONObject;
  */
 
 
-public class PostBike extends Fragment {
+public class PostBike extends Fragment implements View.OnClickListener {
     private int requestCode;
     private int resultCode;
     private Intent data;
 
 
     Button next;
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 //        test();
-
-        return inflater.inflate(R.layout.activity_postbike1, container, false);
+        view = inflater.inflate(R.layout.activity_postbike1, container, false);
+        Button launch = (Button) view.findViewById(R.id.launch_camera_button);
+        next = (Button) view.findViewById(R.id.next_button);
+        next.setOnClickListener(this);
+        launch.setOnClickListener(this);
+        return view;
 
     }
 
@@ -41,10 +48,16 @@ public class PostBike extends Fragment {
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+    }
+    public void launch_camera()
+    {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent,CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
-
-
+    }
+    public void next_page()
+    {
+        Intent intent = new Intent(getActivity(), PostBike2.class);
+        startActivity(intent);
     }
 
     @Override
@@ -52,8 +65,12 @@ public class PostBike extends Fragment {
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             if (resultCode == getActivity().RESULT_OK) {
                 // Image captured and saved to fileUri specified in the Intent
-                Toast.makeText(getActivity(), "Image saved to:\n" +
-                        intent.getData(), Toast.LENGTH_LONG).show();
+               // Toast.makeText(getActivity(), "Image saved to:\n" +
+                        //intent.getData(), Toast.LENGTH_LONG).show();
+                ImageView imgview =(ImageView)view.findViewById(R.id.pic_of_bike_post);
+                Uri imgUri=Uri.parse(intent.getData().toString());
+                imgview.setImageURI(null);
+                imgview.setImageURI(imgUri);
             } else if (resultCode == getActivity().RESULT_CANCELED) {
                 // User cancelled the image capture
             } else {
@@ -78,4 +95,17 @@ public class PostBike extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId())
+        {
+            case R.id.launch_camera_button:
+                launch_camera();
+                break;
+            case R.id.next_button:
+                next_page();
+                break;
+
+        }
+    }
 }
