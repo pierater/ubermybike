@@ -3,6 +3,7 @@ package com.example.idk.myuber;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import org.json.JSONObject;
 public class PostBike extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        test();
         return inflater.inflate(R.layout.activity_postbike1, container, false);
 
     }
@@ -24,14 +26,14 @@ public class PostBike extends Fragment {
 
         String first_name;
         String last_name;
-        Httpget test = new Httpget();
+        Httpget tst = new Httpget();
         JSONObject obj = new JSONObject();
-        obj = test.getUser("1");
-        test.parseUser(obj);
-        first_name = test.getOwner_first_name();
-        last_name = test.getOwner_last_name();
-        System.out.println(first_name);
-        System.out.println(last_name);
+        obj = tst.getUser("1");
+        tst.parseUser(obj);
+        first_name = tst.getOwner_first_name();
+        last_name = tst.getOwner_last_name();
+        Log.v("Post", first_name);
+        Log.v("Post", last_name);
 
     }
 
