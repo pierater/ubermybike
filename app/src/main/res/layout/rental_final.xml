@@ -102,6 +102,12 @@
         android:textColor="#ffffff"
         />
 
+    <ProgressBar
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -110,6 +116,5 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="#000000"
-        android:textColor="#ffffff"
-        />
+        android:textColor="#ffffff" />
 </RelativeLayout>

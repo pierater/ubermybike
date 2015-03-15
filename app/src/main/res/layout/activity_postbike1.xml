@@ -16,11 +16,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.04"
         android:textSize="35dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:background="#000000"
         android:textColor="#ffffff"
-        />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,7 +30,7 @@
         android:textSize="25dp"
         android:background="#000000"
         android:textColor="#ffffff"
-        android:layout_above="@+id/pic_of_bike_post"
+        android:layout_below="@+id/title_post_bike"
         android:layout_alignParentStart="true" />
 
     <ImageView
@@ -39,9 +38,9 @@
         android:layout_height="135dp"
         android:id="@+id/pic_of_bike_post"
         android:src="@mipmap/bike"
-        android:layout_alignParentStart="true"
 
         android:layout_above="@+id/launch_camera_button"
+        android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/step2_post_bike" />
 
     <Button
@@ -50,12 +49,11 @@
         android:text="Launch Camera"
         android:id="@+id/launch_camera_button"
         android:layout_weight="0.04"
-        android:layout_above="@+id/step2_post_bike"
-        android:layout_alignParentStart="true"
         android:background="#000000"
         android:textColor="#ffffff"
 
-        />
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,11 +62,20 @@
         android:id="@+id/step2_post_bike"
         android:layout_weight="0.04"
         android:textSize="25dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
         android:background="#000000"
         android:textColor="#ffffff"
-        />
+        android:layout_below="@+id/launch_camera_button"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/post_description_string"
+        android:background="#ffffff"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/step2_post_bike"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -85,14 +92,4 @@
         android:textColor="#ffffff"
         />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/post_description_string"
-        android:layout_below="@+id/step2_post_bike"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:background="#000000"
-        android:textColor="#ffffff"
-        />
 </RelativeLayout>
