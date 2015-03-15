@@ -78,8 +78,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/owner_name"
+        android:text="George Jetson"
+        android:id="@+id/owner"
         android:layout_below="@+id/owner_name_textview"
         android:layout_alignParentStart="true"
         android:textSize="25dp"
@@ -89,7 +89,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="831-555-1212"
         android:id="@+id/owner_phonenumber"
         android:layout_alignParentStart="true"
         android:textSize="25dp"
@@ -102,7 +102,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="george@jetson.com"
         android:id="@+id/owner_email"
         android:layout_below="@+id/owner_email_textview"
         android:layout_alignParentStart="true"
@@ -113,7 +113,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="5 / 5"
         android:id="@+id/owner_rating"
         android:layout_below="@+id/owner_rating_textview"
         android:layout_alignParentStart="true"
@@ -124,7 +124,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="10 Rentals"
         android:id="@+id/owner_experience"
         android:layout_below="@+id/owner_experience_textview"
         android:layout_alignParentStart="true"

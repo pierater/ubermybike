@@ -32,7 +32,7 @@ public class Owner extends Activity {
         Log.v("STRING", lname);
         Log.v("STRING", phoneNumber);
         Log.v("STRING", email);
-        TextView txtview =(TextView)findViewById(R.id.owner_name);
+        /*TextView txtview =(TextView)findViewById(R.id.owner);
         txtview.setText(fname+ " " + lname);
         TextView pnum =(TextView)findViewById(R.id.owner_phonenumber);
         pnum.setText(phoneNumber);
@@ -42,6 +42,7 @@ public class Owner extends Activity {
         rate.setText(rating);
         TextView exp =(TextView)findViewById(R.id.owner_experience);
         exp.setText(experience);
+        */
 
        }
 
