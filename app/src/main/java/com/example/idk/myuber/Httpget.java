@@ -39,6 +39,7 @@ public class Httpget {
     static String owner_phone_num;
 
 
+
     static JSONArray getJson(HttpEntity httpentity) {
 
         InputStream is = null;
@@ -137,6 +138,7 @@ public class Httpget {
         public void onPostExecute(JSONArray jobj) {
 
             parseBike(jobj);
+            MapsActivity.makeMarkers();
             Log.v("JSON", String.valueOf(jobj.length()));
         }
 
