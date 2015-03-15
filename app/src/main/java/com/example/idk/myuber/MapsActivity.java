@@ -67,7 +67,7 @@ public class MapsActivity extends Fragment {
         else
         {
             Log.v("Map", "Map creaeted");
-            makeMarkers();
+            SetupMap();
         }
 
     }
@@ -103,12 +103,21 @@ public class MapsActivity extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.v("Map", "resu");
+
+
+        SetupMapIfNeeded();
+    }
+
     public static void makeMarkers() {
 
         Log.v("Map","maleMaerler" );
 
-
         JSONArray array = new JSONArray();
+        Log.v("Map", "hasf");
         String[][] coordinates = bikes.getCoordinates();
         Log.v("LOG", "wefew" + String.valueOf(bikes.current_bikes));
         for(int i = 0; i < bikes.current_bikes; i++)
@@ -120,19 +129,4 @@ public class MapsActivity extends Fragment {
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(36.9999630,-122.055105), 16));
     }
 
-
-    public void test() {
-
-        String first_name;
-        String last_name;
-        Httpget tst = new Httpget();
-        JSONObject obj = new JSONObject();
-        AsyncTask<String, Void, JSONArray> task = tst.new myTask().execute("1");
-        //tst.myTask().execute(obj);
-        first_name = tst.getOwner_first_name();
-        last_name = tst.getOwner_last_name();
-        //Log.v("Post", "TEST");
-        //Log.v("Post", last_name);
-
-    }
 }

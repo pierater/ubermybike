@@ -3,6 +3,7 @@ package com.example.idk.myuber;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -24,19 +25,23 @@ public class Owner extends Activity {
         String lname ="Jetson"; //owner.getOwner_last_name();
         String phoneNumber = "831-555-1212";//owner.getOwner_phone_num();
         String email ="george@jetson.com"; //owner.getEmail();
-        String rating = "5";//String.valueOf(owner.getOwner_rating());
-        String experience ="10"; //String.valueOf(owner.getExperience());
+        String rating = "5 / 5";//String.valueOf(owner.getOwner_rating());
+        String experience ="10 Rentals"; //String.valueOf(owner.getExperience());
 
+        Log.v("STRING", fname);
+        Log.v("STRING", lname);
+        Log.v("STRING", phoneNumber);
+        Log.v("STRING", email);
         TextView txtview =(TextView)findViewById(R.id.owner_name);
         txtview.setText(fname+ " " + lname);
         TextView pnum =(TextView)findViewById(R.id.owner_phonenumber);
-        txtview.setText(phoneNumber);
+        pnum.setText(phoneNumber);
         TextView maile =(TextView)findViewById(R.id.owner_email);
-        txtview.setText(email);
+        maile.setText(email);
         TextView rate =(TextView)findViewById(R.id.owner_rating);
-        txtview.setText(rating);
+        rate.setText(rating);
         TextView exp =(TextView)findViewById(R.id.owner_experience);
-        txtview.setText(experience);
+        exp.setText(experience);
 
        }
 

@@ -427,7 +427,7 @@ public class Httpget {
                 pd.dismiss();
 
             Intent intent = new Intent(PostBike2.context, Main_Activity.class);
-            MapsActivity.makeMarkers();
+            //MapsActivity.makeMarkers();
             PostBike2.context.startActivity(intent);
         }
 
