@@ -179,6 +179,7 @@ public class Httpget {
             owner_rating = jObj.optInt("orating");
             user_rating = jObj.optInt("urating");
             experience = jObj.optInt("exp");
+            Log.v("TAG", owner_first_name);
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -196,6 +197,7 @@ public class Httpget {
             bike_lat = jObj.getString("lat");
             bike_lon = jObj.getString("lon");
             bike_owner_num = jObj.getString("owner");
+
         }
         catch (Exception e) {
             e.printStackTrace();
