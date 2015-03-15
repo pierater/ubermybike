@@ -1,5 +1,7 @@
 package com.example.idk.myuber;
 
+import android.util.Log;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -31,16 +33,14 @@ public class Httpget {
     String bike_owner_num;
 
 
-    public JSONObject getJson(HttpEntity httpentity) {
+    static JSONObject getJson(HttpEntity httpentity) {
 
         InputStream is = null;
         String received = "";
         JSONObject jObj = null;
 
         try {
-
             is = httpentity.getContent();
-
         }
 
         catch (IllegalStateException e1) {
@@ -52,7 +52,9 @@ public class Httpget {
         }
 
         try {
-
+            if(is == null) {
+                Log.d("ERRORR", "IT IS NULL");
+            }
             BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
             StringBuilder sb = new StringBuilder();
             String line = null;
@@ -182,7 +184,6 @@ public class Httpget {
             e.printStackTrace();
         }
 
-        return;
 
     }
 

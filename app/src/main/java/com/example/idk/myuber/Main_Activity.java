@@ -15,7 +15,7 @@ public class Main_Activity extends FragmentActivity{
 
     ViewPager viewPager=null;
     public static FragmentManager fragmentManager;
-    ActionBar actionBar;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -26,11 +26,6 @@ public class Main_Activity extends FragmentActivity{
         viewPager.setAdapter(new MyAdapter(fragmentManager));
         fragmentManager = getSupportFragmentManager();
 
-        actionBar = getActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        ActionBar.Tab tab1 = actionBar.newTab();
-        tab1.setText("Map");
-        tab1.setTabListener(this);
 
     }
 
