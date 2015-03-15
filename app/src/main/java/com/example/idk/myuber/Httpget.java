@@ -33,10 +33,11 @@ public class Httpget {
     static int user_rating;
     static int owner_rating;
     static String[] bike_owner_nums = new String[10];
-    static int current_bikes = 0;
+    static int current_bikes;
     static String owner_first_name;
     static String owner_last_name;
     static String owner_phone_num;
+
 
 
     static JSONArray getJson(HttpEntity httpentity) {
@@ -80,19 +81,70 @@ public class Httpget {
                 Log.v("LOG", "EXCEPTION12");
             }
             Log.v("LOG", "received" + received);
-            jObj = new JSONArray(received);
 
+            jObj = new JSONArray(received);
+            Log.v("LOG", String.valueOf(jObj.length()));
         }
         catch (Exception e) {
             Log.v("LOG", "EXCEPTION1N");
             e.printStackTrace();
 
         }
-
+        Log.v("JSON", jObj.toString());
         return jObj;
 
     }
 
+    public class bikeTask extends AsyncTask<String, Void, JSONArray> {
+
+        public bikeTask() {
+            super();
+        }
+
+        @Override
+        protected JSONArray doInBackground(String... params) {
+            try {
+
+                String lat = "36.9999";
+                String lon = "-122.054";
+                String URL = "http://home.loosescre.ws/~keith/astwe/server.php?command=bike&lat=36.9999&lon=-122.054";
+                HttpGet httpget = new HttpGet(URL);
+                Log.v("URL1", URL);
+                ResponseHandler<String> responseHandler = new BasicResponseHandler();
+
+                HttpResponse SetServerString;
+                Log.v("LOG", "EXCEPTION3N");
+                HttpClient Client = new DefaultHttpClient();
+                HttpConnectionParams.setConnectionTimeout(Client.getParams(), 10000);
+                Log.v("LOG", "EXCEPTION4N");
+                SetServerString = Client.execute(httpget);
+                ResponseHandler<String> handler = new BasicResponseHandler();
+
+                Log.v("LOG", "EXCEPTION5N");
+                HttpEntity httpentity = SetServerString.getEntity();
+
+
+                JSONArray result = getJson(httpentity);
+                Log.v("RESULT", result.toString());
+                return result;
+            }
+            catch (Exception e) {
+                Log.v("LOG", "EXCEPTION2N");
+                e.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+        public void onPostExecute(JSONArray jobj) {
+
+            parseBike(jobj);
+            MapsActivity.makeMarkers();
+            Log.v("JSON", String.valueOf(jobj.length()));
+        }
+
+
+    }
+/*
     public JSONArray getBike(String lat, String lon) {
 
         String URL = "http://home.loosescre.ws/~keith/astwe/server.php?command=bike&lat=";
@@ -104,16 +156,23 @@ public class Httpget {
         try {
 
             HttpGet httpget = new HttpGet(URL);
+            Log.v("G", "1");
             ResponseHandler<String> responseHandler = new BasicResponseHandler();
-
+            Log.v("G", "2");
             HttpResponse SetServerString;
+            Log.v("G", "3");
             HttpClient Client = new DefaultHttpClient();
+            Log.v("G", "4");
             SetServerString = Client.execute(httpget);
+            Log.v("G", "5");
 
             HttpEntity httpentity = SetServerString.getEntity();
+            Log.v("G", "6");
 
 
             result = getJson(httpentity);
+            Log.v("G", "7");
+            return result;
 
         }
 
@@ -121,10 +180,10 @@ public class Httpget {
             Log.v("LOG", "EXCEPTION1N");
             e.printStackTrace();
         }
-
+        Log.v("TESTING", "Returnec");
         return result;
     }
-
+*/
 
     public class myTask extends AsyncTask<String, Void, JSONArray> {
 
@@ -162,6 +221,13 @@ public class Httpget {
                 e.printStackTrace();
             }
             return null;
+        }
+
+        @Override
+        public void onPostExecute(JSONArray jobj) {
+
+            parseUser(jobj);
+            Log.v("JSONUSER", String.valueOf(jobj.length()));
         }
 
 
@@ -224,7 +290,7 @@ public class Httpget {
     public void parseBike(JSONArray jObj) {
 
         try {
-
+            Log.v("LOGSS", String.valueOf(jObj.length()));
 
             for(int i = 0; i < jObj.length(); i++) {
 
@@ -236,12 +302,13 @@ public class Httpget {
                 bike_ratings[current_bikes] = Integer.parseInt(temp.getString("rating"));
                 bike_owner_nums[current_bikes] = temp.getString("owner");
                 current_bikes++;
+
             }
 
 
         }
         catch (Exception e) {
-            Log.v("LOG", String.valueOf(jObj.length()));
+            //Log.v("LOG", String.valueOf(jObj.length()));
             e.printStackTrace();
         }
     }

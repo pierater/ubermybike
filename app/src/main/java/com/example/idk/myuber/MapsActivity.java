@@ -33,6 +33,7 @@ public class MapsActivity extends Fragment {
     private static GoogleMap mMap = null;
     private static Marker position = null;
     private SupportMapFragment fragment;
+    public static Httpget bikes = new Httpget();
 
 
     public  static View view;
@@ -48,10 +49,11 @@ public class MapsActivity extends Fragment {
 
     public void SetupMapIfNeeded()
     {
-        test();
+        //test();
         if(mMap == null)
         {
             mMap = getMapFragment().getMap();
+            Log.v("MAP", mMap.toString());
             if(mMap != null)
                 SetupMap();
 
@@ -69,9 +71,21 @@ public class MapsActivity extends Fragment {
 
     private static void SetupMap()
     {
-        Httpget bikes = new Httpget();
-        JSONArray array = bikes.getBike("36.999900","-122.054");
-        bikes.parseBike(array);
+
+        JSONObject obj = new JSONObject();
+        AsyncTask<String, Void, JSONArray> task = bikes.new bikeTask();
+        task.execute("string");
+
+        //Log.v("LOGS", String.valueOf(array.length()));
+        //bikes.parseBike(array);
+
+
+
+    }
+
+    public static void makeMarkers() {
+
+        JSONArray array = new JSONArray();
         String[][] coordinates = bikes.getCoordinates();
         Log.v("LOG","wefew" + String.valueOf(bikes.current_bikes));
         for(int i = 0; i < bikes.current_bikes; i++)
@@ -81,7 +95,6 @@ public class MapsActivity extends Fragment {
         }
         position = mMap.addMarker(new MarkerOptions().position(new LatLng(36.999, -122)).title("Origin"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.7833,-122.4167), 8));
-
     }
     public boolean onMarkClick(Marker marker)
     {

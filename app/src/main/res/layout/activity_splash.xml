@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/splash_screen_final" >
+
+    <ImageView
+
+        android:id="@+id/imgLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/splash_screen_final"
+        android:tileMode="repeat"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_horizontal"
+        android:text="Uber My Bike prototype"
+        android:textColor="#454545"
+        android:textSize="12sp" />
+
+</RelativeLayout>
