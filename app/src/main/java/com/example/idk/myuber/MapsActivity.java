@@ -48,6 +48,8 @@ public class MapsActivity extends Fragment {
         view = (FrameLayout) inflater.inflate(R.layout.activity_maps, container, false);
         MapsActivity.context = getActivity().getApplicationContext();
         SetupMapIfNeeded();
+        Log.v("Map", "onCreate");
+
         return view;
     }
 
@@ -64,6 +66,7 @@ public class MapsActivity extends Fragment {
         }
         else
         {
+            Log.v("Map", "Map creaeted");
             SetupMap();
         }
 
@@ -100,9 +103,22 @@ public class MapsActivity extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.v("Map", "resu");
+
+
+        SetupMapIfNeeded();
+    }
+
     public static void makeMarkers() {
 
+        Log.v("Map","maleMaerler" );
+
+        mMap.clear();
         JSONArray array = new JSONArray();
+        Log.v("Map", "hasf");
         String[][] coordinates = bikes.getCoordinates();
         Log.v("LOG", "wefew" + String.valueOf(bikes.current_bikes));
         for(int i = 0; i < bikes.current_bikes; i++)
@@ -110,31 +126,8 @@ public class MapsActivity extends Fragment {
             Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(coordinates[i][0]),Double.parseDouble(coordinates[i][1]))).icon(BitmapDescriptorFactory.fromResource(R.drawable.bike_marker)));
             Log.v("LOG","Here");
         }
-        position = mMap.addMarker(new MarkerOptions().position(new LatLng(36.999, -122)).title("Origin"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.7833,-122.4167), 8));
+        position = mMap.addMarker(new MarkerOptions().position(new LatLng(36.999630, -122.055105)).title("You Are Here"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(36.9999630,-122.055105), 16));
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        if(mMap != null) {
-            Main_Activity.fragmentManager.beginTransaction().remove(Main_Activity.fragmentManager.findFragmentById(R.id.map)).commit();
-            mMap = null;
-        }
-    }
-
-    public void test() {
-
-        String first_name;
-        String last_name;
-        Httpget tst = new Httpget();
-        JSONObject obj = new JSONObject();
-        AsyncTask<String, Void, JSONArray> task = tst.new myTask().execute("1");
-        //tst.myTask().execute(obj);
-        first_name = tst.getOwner_first_name();
-        last_name = tst.getOwner_last_name();
-        //Log.v("Post", "TEST");
-        //Log.v("Post", last_name);
-
-    }
 }

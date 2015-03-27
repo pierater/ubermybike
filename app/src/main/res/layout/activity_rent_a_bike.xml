@@ -2,17 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/rent_bike">
-
+    android:id="@+id/rent_bike"
+    android:background="#000000"
+    android:textColor="#ffffff"
+    >
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rent_bike_image"
         android:src="@mipmap/bike"
-        android:layout_marginBottom="254dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:contentDescription="Bike to be rented" />
+        android:contentDescription="Bike to be rented"
+        android:layout_above="@+id/bike_rent_description"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,7 +24,10 @@
         android:enabled="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="192dp" />
+        android:layout_marginBottom="192dp"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -32,7 +36,10 @@
         android:id="@+id/rent_button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:clickable="true" />
+        android:clickable="true"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -40,5 +47,30 @@
         android:text="Owner Profile"
         android:id="@+id/owner_profile_button"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description: "
+        android:id="@+id/textView"
+        android:textColor="#ffffffff"
+        android:layout_above="@+id/bike_rent_description"
+        android:layout_centerHorizontal="true"
+        android:textSize="22dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bike Type: Mountain Bike\nSpeeds: 6\nSuper Dope"
+        android:id="@+id/textView2"
+        android:layout_marginTop="70dp"
+        android:layout_alignTop="@+id/bike_rent_description"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffffff"
+        android:layout_above="@+id/rent_button"
+        android:textSize="20dp" />
 </RelativeLayout>

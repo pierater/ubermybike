@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:id="@+id/rental_final">
+    android:id="@+id/rental_final"
+    android:background="#000000"
+    android:textColor="#ffffff"
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -10,16 +13,20 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:textSize="30dp"
-        android:text="Owner Name" />
+        android:text="Owner Name \nGeorge Jetson"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="George Jetson"
         android:id="@+id/owner_name_info"
         android:layout_below="@+id/owners_info_textview"
-        android:layout_alignParentStart="true"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:background="#000000"
+        android:textColor="#ffffff"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,7 +35,22 @@
         android:id="@+id/owner_phonenumber_textview"
         android:textSize="30dp"
         android:layout_below="@+id/owner_name_info"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="831-555-1212"
+        android:id="@+id/owner_phonenumber_info"
+        android:layout_below="@+id/owner_phonenumber_textview"
+        android:layout_alignParentStart="true"
+        android:textSize="25dp"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,25 +59,22 @@
         android:id="@+id/owner_email_textview"
         android:textSize="30dp"
         android:layout_below="@+id/owner_phonenumber_info"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="george@jetson.com"
         android:id="@+id/owner_email_info"
         android:textSize="25dp"
         android:layout_below="@+id/owner_email_textview"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/owner_phonenumber_info"
-        android:layout_below="@+id/owner_phonenumber_textview"
         android:layout_alignParentStart="true"
-        android:textSize="25dp" />
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,7 +83,11 @@
         android:id="@+id/access_code_textview"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:textSize="40dp" />
+        android:textSize="40dp"
+        android:background="#000000"
+        android:textColor="#ffffff"
+
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,7 +96,16 @@
         android:id="@+id/access_code_info"
         android:textSize="40dp"
         android:layout_below="@+id/access_code_textview"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar" />
 
     <Button
         android:layout_width="wrap_content"
@@ -81,5 +113,7 @@
         android:text="Main Menu"
         android:id="@+id/main_menu_button"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="#000000"
+        android:textColor="#ffffff" />
 </RelativeLayout>

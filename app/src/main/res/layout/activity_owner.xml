@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:id="@+id/activity_owner">
+    android:id="@+id/activity_owner"
+    android:background="#000000"
+    android:textColor="#ffffff"
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -11,7 +14,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="51dp"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,7 +26,9 @@
         android:layout_below="@+id/owner_name_textview"
         android:layout_alignParentStart="true"
         android:layout_marginTop="65dp"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,7 +37,9 @@
         android:id="@+id/owner_email_textview"
         android:textSize="30dp"
         android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,7 +49,9 @@
         android:layout_below="@+id/owner_email_textview"
         android:layout_alignParentStart="true"
         android:layout_marginTop="61dp"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -50,7 +61,9 @@
         android:layout_below="@+id/owner_rating_textview"
         android:layout_alignParentStart="true"
         android:layout_marginTop="49dp"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:textColor="#ffffff"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -58,52 +71,64 @@
         android:text="Ok"
         android:id="@+id/return_button"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textColor="#ffffff"
+        android:background="#000000"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/owner_name"
+        android:text="George Jetson"
+        android:id="@+id/owner"
         android:layout_below="@+id/owner_name_textview"
         android:layout_alignParentStart="true"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="831-555-1212"
         android:id="@+id/owner_phonenumber"
         android:layout_alignParentStart="true"
         android:textSize="25dp"
         android:layout_below="@+id/owner_phonenumber_textview"
         android:layout_above="@+id/owner_email_textview"
-        android:layout_alignEnd="@+id/owner_phonenumber_textview" />
+        android:layout_alignEnd="@+id/owner_phonenumber_textview"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="george@jetson.com"
         android:id="@+id/owner_email"
         android:layout_below="@+id/owner_email_textview"
         android:layout_alignParentStart="true"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="5 / 5"
         android:id="@+id/owner_rating"
         android:layout_below="@+id/owner_rating_textview"
         android:layout_alignParentStart="true"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="10 Rentals"
         android:id="@+id/owner_experience"
         android:layout_below="@+id/owner_experience_textview"
         android:layout_alignParentStart="true"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:textColor="#ffffff"
+        />
 </RelativeLayout>

@@ -3,6 +3,7 @@ package com.example.idk.myuber;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -20,22 +21,28 @@ public class Owner extends Activity {
         Httpget owner = new Httpget();
         JSONObject ownerInfo = new JSONObject();
         AsyncTask<String,Void, JSONArray> task = owner.new myTask().execute("1");
-        String fname = owner.getOwner_first_name();
-        String lname = owner.getOwner_last_name();
-        String phoneNumber = owner.getOwner_phone_num();
-        String email = owner.getEmail();
-        String rating = String.valueOf(owner.getOwner_rating());
-        String experience = String.valueOf(owner.getExperience());
-        TextView txtview =(TextView)findViewById(R.id.owner_name);
+        String fname ="George "; //owner.getOwner_first_name();
+        String lname ="Jetson"; //owner.getOwner_last_name();
+        String phoneNumber = "831-555-1212";//owner.getOwner_phone_num();
+        String email ="george@jetson.com"; //owner.getEmail();
+        String rating = "5 / 5";//String.valueOf(owner.getOwner_rating());
+        String experience ="10 Rentals"; //String.valueOf(owner.getExperience());
+
+        Log.v("STRING", fname);
+        Log.v("STRING", lname);
+        Log.v("STRING", phoneNumber);
+        Log.v("STRING", email);
+        /*TextView txtview =(TextView)findViewById(R.id.owner);
         txtview.setText(fname+ " " + lname);
         TextView pnum =(TextView)findViewById(R.id.owner_phonenumber);
-        txtview.setText(phoneNumber);
+        pnum.setText(phoneNumber);
         TextView maile =(TextView)findViewById(R.id.owner_email);
-        txtview.setText(email);
+        maile.setText(email);
         TextView rate =(TextView)findViewById(R.id.owner_rating);
-        txtview.setText(rating);
+        rate.setText(rating);
         TextView exp =(TextView)findViewById(R.id.owner_experience);
-        txtview.setText(experience);
+        exp.setText(experience);
+        */
 
        }
 

@@ -4,7 +4,10 @@
     android:layout_height="match_parent"
     android:weightSum="1"
     android:id="@+id/Post_bike_page2"
-    android:clickable="false">
+    android:clickable="false"
+    android:background="#000000"
+    android:textColor="#ffffff"
+    >
 
 
     <TextView
@@ -16,7 +19,10 @@
         android:textSize="50dp"
         android:layout_marginLeft="0dp"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <TextView
         android:layout_width="match_parent"
@@ -26,7 +32,10 @@
         android:layout_marginLeft="0dp"
         android:layout_below="@+id/post_bike_textview"
         android:layout_alignEnd="@+id/post_bike_post_button"
-        android:text="@string/post_description_string" />
+        android:text="@string/post_description_string"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        />
 
     <Button
         android:elevation="50dp"
@@ -41,7 +50,9 @@
         android:backgroundTint="@color/abc_primary_text_material_dark"
         style="@android:style/Holo.ButtonBar"
         android:layout_alignParentEnd="false"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff"
+        />
 
     <ImageView
         android:layout_width="wrap_content"
