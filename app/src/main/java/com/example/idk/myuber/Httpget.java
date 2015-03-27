@@ -149,7 +149,7 @@ public class Httpget {
         @Override
         protected JSONArray doInBackground(String... params) {
             try {
-                String URL = "http://home.loosescre.ws/~keith/astwe/server.php?command=user&number=" + params[0];
+                String URL = "http://www.sector5150.com/server.php?command=user&number=" + params[0];
                 HttpGet httpget = new HttpGet(URL);
                 Log.v("URL", params[0]);
 
@@ -189,7 +189,7 @@ public class Httpget {
 
     public JSONArray newBike(Bike new_bike) {
 
-        String URL = "http://home.loosescre.ws/~keith/astwe/server.php?command=newbike&data=";
+        String URL = "http://www.sector5150.com/server.php?command=newbike&data=";
 
         JSONArray result = null;
 
@@ -357,9 +357,9 @@ public class Httpget {
             try {
 
                 String owner = params[0];
-                String lat = params[0];
-                String lon = params[0];
-                String rating = params[0];
+                String lat = params[1];
+                String lon = params[2];
+                String rating = params[3];
 
                 JSONObject obj = new JSONObject();
                 obj.put("owner", owner);
