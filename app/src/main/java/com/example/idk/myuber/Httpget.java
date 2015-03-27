@@ -109,7 +109,7 @@ public class Httpget {
 
                 String lat = "36.9999";
                 String lon = "-122.054";
-                String URL = "http://home.loosescre.ws/~keith/astwe/server.php?command=bike&lat=36.9999&lon=-122.054";
+                String URL = "http://www.sector5150.com/server.php?command=bike&lat=36.9999&lon=-122.054";
                 HttpGet httpget = new HttpGet(URL);
                 Log.v("URL1V", URL);
                 ResponseHandler<String> responseHandler = new BasicResponseHandler();
